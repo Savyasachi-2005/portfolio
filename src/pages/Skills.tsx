@@ -110,17 +110,7 @@ const Skills = () => {
   );
 
   // Animation variants for staggered children
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    },
-    exit: { opacity: 0 }
-  };
+  // (Removed unused containerVariants to satisfy no-unused-locals build rule.)
   
   return (
     <section className="w-full min-h-screen bg-cyber-dark text-white px-4 md:px-8 pt-24 pb-20 relative overflow-hidden">
