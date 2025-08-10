@@ -1,49 +1,64 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import type { Project } from '../types';
+// Local project images
+import SparshaImg from '../assets/project_images/Sparsha.png';
+import SortifyImg from '../assets/project_images/Sortify.png';
+import AIStudyImg from '../assets/project_images/AI_study.png';
+import StudentImg from '../assets/project_images/student.png';
 
 // Sample project data - replace with actual projects later
 const projectsData: Project[] = [
   {
     id: 'project-1',
-    title: 'AI-Powered Task Manager',
-    description: 'A task management app with AI-powered priority suggestions and task categorization.',
+    title: 'Project Sparsha',
+    description: 'An AI-powered emergency reporting and adoption platform for stray animals, featuring real-time alerts, volunteer coordination, adoption gallery, and Compassion Coins rewards system.',
     techStack: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Machine Learning'],
-    githubUrl: 'https://github.com/username/project1',
-    liveUrl: 'https://project1-demo.com',
-    imageUrl: 'https://via.placeholder.com/600x400?text=Project+1'
+    githubUrl: 'https://github.com/Savyasachi-2005/Project-Sparsha',
+  imageUrl: SparshaImg
   },
   {
     id: 'project-2',
-    title: 'Blockchain Voting System',
-    description: 'A secure digital voting platform built on blockchain technology for transparent elections.',
-    techStack: ['Solidity', 'Ethereum', 'Web3.js', 'React'],
-    githubUrl: 'https://github.com/username/project2',
-    imageUrl: 'https://via.placeholder.com/600x400?text=Project+2'
+    title: 'Sortify — AI-Powered Productivity Assistant',
+    description: 'Turns your messy to-do lists into structured SMART goals, prioritizes tasks as High/Medium/Low, and keeps you focused on what actually matters. Built with FastAPI and AI integration for smarter task management.',
+    techStack: ['React', 'Tailwind CSS', 'FastAPI', 'Z.AI'],
+    githubUrl: 'https://github.com/Savyasachi-2005/Sortify',
+  imageUrl: SortifyImg
   },
   {
     id: 'project-3',
-    title: 'Real-time Chat Application',
-    description: 'End-to-end encrypted messaging platform with real-time updates and media sharing.',
-    techStack: ['TypeScript', 'Socket.io', 'Express', 'Redis', 'MongoDB'],
-    githubUrl: 'https://github.com/username/project3',
-    liveUrl: 'https://project3-demo.com',
-    imageUrl: 'https://via.placeholder.com/600x400?text=Project+3'
+    title: 'AI - Study Planner',
+    description: 'An AI-driven study planner that helps students organize their study schedules, set goals, and track progress.',
+    techStack: ['Streamlit', 'Python','OpenRouter'],
+    githubUrl: 'https://github.com/Savyasachi-2005/AI-study-planner',
+  imageUrl: AIStudyImg
   },
   {
     id: 'project-4',
-    title: 'Data Visualization Dashboard',
-    description: 'Interactive dashboard for visualizing and analyzing large datasets with filtering capabilities.',
-    techStack: ['Python', 'Flask', 'D3.js', 'Pandas', 'PostgreSQL'],
-    githubUrl: 'https://github.com/username/project4',
-    imageUrl: 'https://via.placeholder.com/600x400?text=Project+4'
+    title: 'Student Study Organizer',
+    description: 'A web application that centralizes and organizes study materials like videos, articles, courses, and notes, with progress tracking, secure authentication, and responsive UI for self-paced learners.',
+    techStack: ['Python', 'Flask', 'PostgreSQL', 'SQLite', 'SQLAlchemy', 'Bootstrap 5', 'HTML5', 'CSS3', 'JavaScript'],
+    githubUrl: 'https://github.com/Savyasachi-2005/Student-Study-Organiser',
+  imageUrl: StudentImg
   }
 ];
 
 const Projects = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  const [selected, setSelected] = useState<Project | null>(null);
+  const closeModal = () => setSelected(null);
+
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
   }, []);
 
   return (
@@ -80,11 +95,77 @@ const Projects = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        >
           {projectsData.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onSelect={setSelected}
+            />
           ))}
         </div>
+
+  {selected && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            aria-modal="true"
+            role="dialog"
+          >
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              className="relative w-full max-w-3xl bg-cyber-darker border border-gray-700 rounded-xl shadow-2xl overflow-hidden"
+            >
+              <button
+                onClick={closeModal}
+                aria-label="Close"
+                className="absolute top-3 right-3 z-10 bg-gray-800/70 hover:bg-gray-700 text-gray-200 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+              >
+                ×
+              </button>
+              <div className="h-60 relative group bg-black flex items-center justify-center">
+                <img src={selected.imageUrl} alt={selected.title} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 to-black/60" />
+                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+                  {selected.techStack.map((t) => (
+                    <span key={t} className="px-2 py-1 text-[10px] bg-cyber-blue/20 text-cyber-blue rounded-md backdrop-blur-sm border border-cyber-blue/30">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <h2 className="text-2xl font-bold font-orbitron text-white">{selected.title}</h2>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{selected.description}</p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <a
+                    href={selected.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-white text-sm transition-colors"
+                  >
+                    <span>GitHub</span>
+                  </a>
+                  {selected.liveUrl && (
+                    <a
+                      href={selected.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cyber-blue hover:bg-cyber-blue/80 text-white text-sm transition-colors"
+                    >
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaDownload, FaEye } from 'react-icons/fa';
+import { FaDownload, FaEye, FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+// Import the actual resume PDF asset (Vite will resolve this to a URL)
+import resumePdf from '../assets/my resume.pdf';
 
 const Resume = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // In a real application, you would have an actual resume PDF file
-  const resumeDownloadUrl = '/resume.pdf';
+  // Resolved URL for the bundled resume PDF
+  const resumeDownloadUrl = resumePdf;
 
   return (
     <motion.div
@@ -18,8 +20,8 @@ const Resume = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="text-center mb-12 max-w-4xl mx-auto">
           <motion.h1
             className="text-3xl md:text-4xl font-bold mb-4 font-orbitron"
             initial={{ opacity: 0, y: -20 }}
@@ -35,8 +37,9 @@ const Resume = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           />
         </div>
-
-        <div className="max-w-3xl mx-auto">
+        <div className="grid gap-10 xl:grid-cols-12 xl:items-start">
+          {/* MAIN COLUMN */}
+          <div className="xl:col-span-8 max-w-3xl mx-auto w-full">
           <motion.div
             className="bg-cyber-darker p-8 rounded-lg border border-gray-800 mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -67,12 +70,18 @@ const Resume = () => {
               </div>
             </div>
             
-            {/* Resume Placeholder - In a real application, you would embed the actual resume */}
-            <div className="bg-cyber-dark rounded-lg p-6 border border-gray-700 text-center">
-              <p className="text-gray-400">
-                Resume preview not available. Please download the PDF to view the resume.
-              </p>
-              {/* This is where you would embed the PDF in a real application */}
+            {/* Embedded PDF preview (falls back gracefully if browser can't display) */}
+            <div className="bg-cyber-dark rounded-lg border border-gray-700 overflow-hidden" style={{ minHeight: '70vh' }}>
+              <object data={resumeDownloadUrl} type="application/pdf" className="w-full h-full min-h-[70vh]">
+                <iframe
+                  src={resumeDownloadUrl}
+                  title="Resume PDF"
+                  className="w-full h-full min-h-[70vh]"
+                />
+                <div className="p-6 text-center text-gray-400">
+                  PDF preview not supported in this browser. Please use the Download or Preview buttons above.
+                </div>
+              </object>
             </div>
           </motion.div>
 
@@ -101,85 +110,56 @@ const Resume = () => {
               </div>
             </motion.div>
 
-            {/* Skills */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h3 className="text-xl font-bold mb-4 font-orbitron flex items-center">
-                <span className="w-6 h-1 bg-cyber-blue mr-3"></span>
-                Skills
-              </h3>
-              <div className="bg-cyber-darker p-6 rounded-lg border border-gray-800">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold mb-2">Programming Languages</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
-                      <li>Java (DSA)</li>
-                      <li>Python</li>
-                      <li>C, C++</li>
-                      <li>R</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Backend Technologies</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
-                      <li>FastAPI</li>
-                      <li>Flask</li>
-                      <li>PostgreSQL</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Tools & Technologies</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
-                      <li>Git</li>
-                      <li>Docker</li>
-                      <li>Redis</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Other Skills</h4>
-                    <ul className="list-disc list-inside text-gray-300 space-y-1">
-                      <li>Machine Learning</li>
-                      <li>Data Structures</li>
-                      <li>Algorithms</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Projects */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <h3 className="text-xl font-bold mb-4 font-orbitron flex items-center">
-                <span className="w-6 h-1 bg-cyber-blue mr-3"></span>
-                Projects
-              </h3>
-              <div className="bg-cyber-darker p-6 rounded-lg border border-gray-800">
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold">AI-Powered Task Manager</h4>
-                    <p className="text-sm text-gray-400">Python, FastAPI, React, PostgreSQL</p>
-                    <p className="mt-2">
-                      A task management application with AI-powered priority suggestions and task categorization.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Blockchain Voting System</h4>
-                    <p className="text-sm text-gray-400">Solidity, Ethereum, Web3.js, React</p>
-                    <p className="mt-2">
-                      A secure digital voting platform built on blockchain technology for transparent elections.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            {/* Skills & Projects removed as requested */}
           </div>
+          </div>
+          {/* SIDEBAR (visible on xl and up) */}
+          <motion.aside
+            className="hidden xl:block xl:col-span-4 space-y-8 sticky top-28"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            {/* Summary Card */}
+            <div className="bg-cyber-darker border border-gray-800 rounded-lg p-6">
+              <h3 className="font-orbitron font-semibold text-lg mb-3">Profile Snapshot</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Passionate software developer focused on building performant backend services and
+                intelligent systems with clean architecture and measurable impact.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-400">
+                <li className="flex items-center gap-2"><FaMapMarkerAlt className="text-cyber-blue" /> Tumkur, India</li>
+                <li className="flex items-center gap-2"><FaEnvelope className="text-cyber-blue" /> abhisek@example.com</li>
+              </ul>
+            </div>
+            {/* Key Skills */}
+            <div className="bg-cyber-darker border border-gray-800 rounded-lg p-6">
+              <h3 className="font-orbitron font-semibold text-lg mb-3">Core Strengths</h3>
+              <div className="flex flex-wrap gap-2">
+                {['FastAPI','PostgreSQL','Python','Java DSA','System Design','ML','Docker','Redis'].map(tag => (
+                  <span key={tag} className="px-2.5 py-1 rounded-md bg-cyber-dark border border-gray-700 text-xs text-gray-300">{tag}</span>
+                ))}
+              </div>
+            </div>
+            {/* Links */}
+            <div className="bg-cyber-darker border border-gray-800 rounded-lg p-6">
+              <h3 className="font-orbitron font-semibold text-lg mb-3">Links</h3>
+              <div className="space-y-3 text-sm">
+                <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
+                  <span className="w-8 h-8 rounded-md flex items-center justify-center bg-cyber-dark border border-gray-700 group-hover:border-cyber-blue transition-colors"><FaGithub /></span>
+                  <span className="text-gray-300 group-hover:text-cyber-blue transition-colors">GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
+                  <span className="w-8 h-8 rounded-md flex items-center justify-center bg-cyber-dark border border-gray-700 group-hover:border-cyber-blue transition-colors"><FaLinkedin /></span>
+                  <span className="text-gray-300 group-hover:text-cyber-blue transition-colors">LinkedIn</span>
+                </a>
+                <a href={resumeDownloadUrl} download className="flex items-center gap-2 group">
+                  <span className="w-8 h-8 rounded-md flex items-center justify-center bg-cyber-dark border border-gray-700 group-hover:border-cyber-blue transition-colors"><FaDownload /></span>
+                  <span className="text-gray-300 group-hover:text-cyber-blue transition-colors">Download Resume</span>
+                </a>
+              </div>
+            </div>
+          </motion.aside>
         </div>
       </div>
     </motion.div>

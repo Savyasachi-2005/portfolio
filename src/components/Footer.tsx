@@ -44,7 +44,7 @@ const Footer = () => {
             <h3 className="text-lg font-medium text-white">Connect</h3>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/username" 
+                href="https://github.com/Savyasachi-2005" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-gray-400 hover:text-cyber-blue transition-colors"
@@ -53,7 +53,7 @@ const Footer = () => {
                 <FaGithub className="w-6 h-6" />
               </a>
               <a 
-                href="https://linkedin.com/in/username" 
+                href="https://www.linkedin.com/in/abhishek-hiremath-3020692a3" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-gray-400 hover:text-cyber-blue transition-colors"
@@ -62,7 +62,7 @@ const Footer = () => {
                 <FaLinkedin className="w-6 h-6" />
               </a>
               <a 
-                href="mailto:email@example.com" 
+                href="mailto:abhishekhiremath0424@gmail.com" 
                 className="text-gray-400 hover:text-cyber-blue transition-colors"
                 aria-label="Email"
               >

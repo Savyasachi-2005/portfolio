@@ -5,26 +5,39 @@ import type { Project } from '../types';
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onSelect?: (project: Project) => void;
 }
 
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
+const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
-      className="relative bg-cyber-darker rounded-lg overflow-hidden border border-gray-800 hover:border-cyber-blue/50 group"
+      className="relative bg-cyber-darker rounded-lg overflow-hidden border border-gray-800 hover:border-cyber-blue/50 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-blue/70"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      role={onSelect ? 'button' : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+  onClick={() => onSelect?.(project)}
+      onKeyDown={(e) => {
+        if (!onSelect) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+            onSelect(project);
+        }
+      }}
+      data-project-card
     >
       {/* Glass effect overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-darker/80 z-10"></div>
       
-      {/* Project image */}
-      <div className="h-48 overflow-hidden">
-        <img 
-          src={project.imageUrl} 
-          alt={project.title} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      {/* Project image (show full without cropping) */}
+      <div className="h-48 bg-black flex items-center justify-center">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
         />
       </div>
       
@@ -52,6 +65,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             target="_blank" 
             rel="noreferrer"
             className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-colors"
+            onClick={(e) => e.stopPropagation()}
             aria-label="GitHub Repository"
           >
             <FaGithub className="w-5 h-5" />
@@ -63,6 +77,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               target="_blank" 
               rel="noreferrer"
               className="p-2 rounded-full bg-cyber-blue hover:bg-cyber-blue/80 text-white transition-colors"
+              onClick={(e) => e.stopPropagation()}
               aria-label="Live Demo"
             >
               <FaExternalLinkAlt className="w-5 h-5" />
