@@ -4,7 +4,6 @@ import SkillBadge from '../components/SkillBadge';
 import type { Skill } from '../types';
 import { SiPython, SiCplusplus, SiR, SiOpenjdk, SiFastapi, SiFlask, 
          SiPostgresql, SiGit, SiDocker, SiRedis } from 'react-icons/si';
-import { DiCss3 } from 'react-icons/di';
 import { FaC } from 'react-icons/fa6';
 
 // Skills data with proper React Icons
