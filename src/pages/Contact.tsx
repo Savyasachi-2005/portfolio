@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+// Using direct fetch to Formspree endpoint – no hook import needed.
 
 const Contact = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const formId = import.meta.env.VITE_FORMSPREE_FORM_ID || '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -26,17 +28,33 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formId) {
+      setError('Form not configured. Add VITE_FORMSPREE_FORM_ID to your .env file.');
+      return;
+    }
     setIsSubmitting(true);
     setError(null);
-
-    // Simulate form submission with timeout
-    // In a real app, you would use Formspree or another service
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSubmitted(true);
-      setFormState({ name: '', email: '', subject: '', message: '' });
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+          _subject: formState.subject || 'New portfolio contact',
+        })
+      });
+      if (res.ok) {
+        setIsSubmitted(true);
+        setFormState({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || 'Failed to send. Try again later.');
+      }
     } catch (err) {
-      setError('There was an error submitting your message. Please try again.');
+      setError('Network error. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -96,6 +114,11 @@ const Contact = () => {
           >
             Feel free to reach out to me for collaborations, opportunities, or just to say hi!
           </motion.p>
+          {!formId && (
+            <div className="mt-4 text-amber-400 text-xs bg-amber-500/10 inline-block px-3 py-1 rounded">
+              Add VITE_FORMSPREE_FORM_ID to enable live submissions.
+            </div>
+          )}
         </div>
 
   {/* Main Content Grid */}
@@ -120,7 +143,7 @@ const Contact = () => {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                     Name
