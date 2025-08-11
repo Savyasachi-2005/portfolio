@@ -114,13 +114,8 @@ const Skills = () => {
   // (Removed unused containerVariants to satisfy no-unused-locals build rule.)
   
   return (
-  <section className="section w-full min-h-screen bg-cyber-dark text-pro-text px-4 md:px-8 pt-24 pb-20 relative overflow-hidden">
-      {/* Background effect */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf810 1px, transparent 1px)', backgroundSize: '34px 34px' }} />
-        {/* Single subtle orb */}
-        <motion.div className="absolute -left-24 top-52 w-72 h-72 rounded-full bg-cyber-blue/10 blur-3xl" initial={{ opacity: 0 }} animate={{ opacity: 0.5, y: [-10, 10, -10] }} transition={{ duration: 18, repeat: Infinity }} />
-      </div>
+  <section className="section w-full min-h-screen bg-transparent text-pro-text px-4 md:px-8 pt-24 pb-20 relative overflow-hidden">
+      {/* Removed internal solid background so global dotted pattern is visible */}
       
   <div className="text-center mb-12 sm:mb-16 w-full relative z-10">
         <motion.h1
