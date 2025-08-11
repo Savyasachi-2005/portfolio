@@ -255,7 +255,7 @@ const Contact = () => {
                   <FaLinkedin className="w-5 h-5 text-cyber-blue mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-white text-sm">LinkedIn</p>
-                    <p className="text-xs text-gray-400">Abhisek Hiremath</p>
+                    <p className="text-xs text-gray-400">Abhishek Hiremath</p>
                   </div>
                 </a>
                 <a

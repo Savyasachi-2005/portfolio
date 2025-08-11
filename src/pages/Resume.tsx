@@ -48,13 +48,13 @@ const Resume = () => {
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
               <div>
-                <h2 className="text-2xl font-bold font-orbitron mb-1">Abhisek Hiremath</h2>
+                <h2 className="text-2xl font-bold font-orbitron mb-1">Abhishek Hiremath</h2>
                 <p className="text-cyber-blue">Software Developer</p>
               </div>
               <div className="flex mt-4 sm:mt-0 space-x-3">
                 <a
                   href={resumeDownloadUrl}
-                  download="Abhisek_Hiremath_Resume.pdf"
+                  download="Abhishek_Hiremath_Resume.pdf"
                   className="flex items-center px-4 py-2 rounded-md bg-cyber-blue text-white hover:bg-cyber-blue/80 transition-all duration-300"
                 >
                   <FaDownload className="mr-2" /> Download PDF

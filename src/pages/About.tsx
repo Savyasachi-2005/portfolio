@@ -20,22 +20,22 @@ const About = () => {
   const galleryImages = [
     {
       src: img1,
-      alt: "Abhisek Hiremath - Profile Photo 1",
+  alt: "Abhishek Hiremath - Profile Photo 1",
       fallback: "https://via.placeholder.com/400x400?text=Profile+1"
     },
     {
       src: img2, 
-      alt: "Abhisek Hiremath - Profile Photo 2",
+  alt: "Abhishek Hiremath - Profile Photo 2",
       fallback: "https://via.placeholder.com/400x400?text=Profile+2"
     },
     {
       src: img3,
-      alt: "Abhisek Hiremath - Profile Photo 3",
+  alt: "Abhishek Hiremath - Profile Photo 3",
       fallback: "https://via.placeholder.com/400x400?text=Profile+3"
     },
     {
       src: img4,
-      alt: "Abhisek Hiremath - Profile Photo 4",
+  alt: "Abhishek Hiremath - Profile Photo 4",
       fallback: "https://via.placeholder.com/400x400?text=Profile+4"
     }
   ];
@@ -209,7 +209,7 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-bold font-orbitron">Abhisek Hiremath</h2>
+            <h2 className="text-2xl font-bold font-orbitron">Abhishek Hiremath</h2>
             <p className="text-lg text-gray-300 font-light">
               <span className="text-cyber-blue font-normal">Student & Developer</span>
             </p>
@@ -261,21 +261,21 @@ const About = () => {
             {[
               {
                 src: img5,
-                alt: "Abhisek - Journey Photo 1",
+                alt: "Abhishek - Journey Photo 1",
                 title: "My Development Journey",
                 description: "Passionate about coding and technology",
                 fallback: "https://via.placeholder.com/300x200?text=Journey+1"
               },
               {
                 src: img1, 
-                alt: "Abhisek - Journey Photo 2",
+                alt: "Abhishek - Journey Photo 2",
                 title: "Learning & Growth",
                 description: "Continuous improvement mindset",
                 fallback: "https://via.placeholder.com/300x200?text=Journey+2"
               },
               {
                 src: img3,
-                alt: "Abhisek - Journey Photo 3",
+                alt: "Abhishek - Journey Photo 3",
                 title: "Future Aspirations",
                 description: "Building tomorrow's solutions",
                 fallback: "https://via.placeholder.com/300x200?text=Journey+3"

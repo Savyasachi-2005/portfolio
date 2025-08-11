@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex items-center">
             <span className="font-orbitron text-xl md:text-2xl font-semibold text-cyber-blue tracking-wide">
-              Abhisek<span className="text-cyber-neon">.dev</span>
+              Abhishek<span className="text-cyber-neon">.dev</span>
             </span>
           </Link>
 

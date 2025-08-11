@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
               <span className="font-orbitron text-xl font-bold text-cyber-blue">
-                Abhisek<span className="text-cyber-neon">.dev</span>
+                Abhishek<span className="text-cyber-neon">.dev</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 max-w-xs">
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
-          <p>© {currentYear} Abhisek Hiremath. All rights reserved.</p>
+          <p>© {currentYear} Abhishek Hiremath. All rights reserved.</p>
           <p className="mt-1">
             <span className="font-orbitron">Noctabyte</span> | <span className="font-orbitron">Savya</span> | <span className="font-orbitron">Savyasachi</span>
           </p>
