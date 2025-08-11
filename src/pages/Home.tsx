@@ -17,7 +17,7 @@ const Home = () => {
       <Hero />
       
       {/* Optional additional content */}
-      <section className="py-16 w-full bg-gradient-to-b from-cyber-dark to-cyber-darker">
+  <section className="section w-full bg-cyber-darker/30">
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-8 font-orbitron"
@@ -49,19 +49,20 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-cyber-darker p-6 rounded-lg border border-gray-800"
-                initial={{ opacity: 0, y: 20 }}
+                className="card-base p-6 text-left"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
               >
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <h3 className="text-lg font-semibold mb-2 text-pro-offwhite tracking-wide">{item.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
+          <div className="section-divider" />
         </div>
       </section>
     </motion.div>

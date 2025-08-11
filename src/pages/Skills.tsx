@@ -113,37 +113,17 @@ const Skills = () => {
   // (Removed unused containerVariants to satisfy no-unused-locals build rule.)
   
   return (
-    <section className="w-full min-h-screen bg-cyber-dark text-white px-4 md:px-8 pt-24 pb-20 relative overflow-hidden">
+    <section className="section w-full min-h-screen bg-cyber-dark text-pro-text px-4 md:px-8 pt-28 pb-24 relative overflow-hidden">
       {/* Background effect */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 opacity-10" 
-          style={{ 
-            backgroundImage: `radial-gradient(circle at center, #38bdf8 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }}
-        ></div>
-        {/* Glowing orbs */}
-        <motion.div 
-          className="absolute -left-20 top-40 w-80 h-80 rounded-full bg-cyber-blue opacity-5 blur-3xl"
-          animate={{ 
-            x: [0, 20, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        ></motion.div>
-        <motion.div 
-          className="absolute right-0 bottom-40 w-64 h-64 rounded-full bg-cyber-purple opacity-5 blur-3xl"
-          animate={{ 
-            x: [0, -30, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        ></motion.div>
+        <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf810 1px, transparent 1px)', backgroundSize: '34px 34px' }} />
+        {/* Single subtle orb */}
+        <motion.div className="absolute -left-24 top-52 w-72 h-72 rounded-full bg-cyber-blue/10 blur-3xl" initial={{ opacity: 0 }} animate={{ opacity: 0.5, y: [-10, 10, -10] }} transition={{ duration: 18, repeat: Infinity }} />
       </div>
       
-      <div className="text-center mb-16 w-full relative z-10">
+    <div className="text-center mb-16 w-full relative z-10">
         <motion.h1
-          className="text-3xl md:text-5xl font-bold mb-4 font-orbitron glow-text"
+      className="text-3xl md:text-5xl font-semibold mb-4 font-orbitron glow-text tracking-wide"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -157,7 +137,7 @@ const Skills = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         />
         <motion.p
-          className="mt-8 mx-auto text-gray-300 text-lg"
+          className="mt-8 mx-auto text-muted max-w-2xl text-base md:text-lg leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -170,6 +150,7 @@ const Skills = () => {
         {categoryContainer("Backend Development", backendSkills)}
         {categoryContainer("Development Tools", toolsSkills)}
         {categoryContainer("Programming Languages", languageSkills)}
+        <div className="section-divider" />
       </div>
     </section>
   );

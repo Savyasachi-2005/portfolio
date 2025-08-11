@@ -32,8 +32,8 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-cyber-darker bg-opacity-90 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      className={`fixed w-full top-0 z-50 transition-colors duration-300 border-b ${
+        scrolled ? 'bg-cyber-darker/95 backdrop-blur-md border-pro-steel/60 shadow-md' : 'bg-transparent border-transparent'
       }`}
     >
       {/* Mirror/Glass effect overlay */}
@@ -42,14 +42,9 @@ const Navbar = () => {
       <nav className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-4 relative z-10">
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex items-center">
-            <motion.span 
-              className="font-orbitron text-xl md:text-2xl font-bold text-cyber-blue"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <span className="font-orbitron text-xl md:text-2xl font-semibold text-cyber-blue tracking-wide">
               Abhisek<span className="text-cyber-neon">.dev</span>
-            </motion.span>
+            </span>
           </Link>
 
           {/* Mobile menu button */}
@@ -69,12 +64,12 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+      <div className="hidden md:flex md:items-center md:space-x-6">
             {navLinks.map((link) => (
               <Link 
                 key={link.path} 
                 to={link.path} 
-                className={`relative px-1 py-2 text-sm font-medium transition-colors ${
+        className={`relative px-1 py-2 text-sm font-medium tracking-wide transition-colors ${
                   location.pathname === link.path 
                     ? 'text-cyber-blue' 
                     : 'text-gray-300 hover:text-cyber-blue'
@@ -85,9 +80,9 @@ const Navbar = () => {
                   <motion.span 
                     className="absolute bottom-0 left-0 w-full h-0.5 bg-cyber-blue" 
                     layoutId="navbar-indicator"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
                   />
                 )}
               </Link>
@@ -98,10 +93,10 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div 
-            className="md:hidden bg-cyber-darker bg-opacity-95 backdrop-blur-md rounded-lg mt-4 shadow-lg"
-            initial={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-cyber-darker/95 backdrop-blur-md rounded-xl mt-4 shadow-lg border border-pro-steel/60"
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25 }}
           >
             <div className="flex flex-col space-y-3 px-4 py-5">
               {navLinks.map((link) => (
@@ -110,8 +105,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     location.pathname === link.path
-                      ? 'bg-cyber-blue bg-opacity-20 text-cyber-blue'
-                      : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                      ? 'bg-pro-steel/70 text-cyber-blue border border-cyber-blue/30'
+                      : 'text-gray-300 hover:bg-pro-steel/60 hover:text-white'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

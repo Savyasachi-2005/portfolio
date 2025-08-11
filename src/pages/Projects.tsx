@@ -63,7 +63,7 @@ const Projects = () => {
 
   return (
     <motion.div
-      className="pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full"
+      className="section pt-28 pb-20 px-4 sm:px-6 md:px-8 w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -95,9 +95,7 @@ const Projects = () => {
           </motion.p>
         </div>
 
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projectsData.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -107,6 +105,7 @@ const Projects = () => {
             />
           ))}
         </div>
+  <div className="section-divider" />
 
   {selected && (
           <div
@@ -116,10 +115,10 @@ const Projects = () => {
           >
             <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              className="relative w-full max-w-3xl bg-cyber-darker border border-gray-700 rounded-xl shadow-2xl overflow-hidden"
+              exit={{ opacity: 0, y: 32 }}
+              className="relative w-full max-w-3xl card-base overflow-hidden"
             >
               <button
                 onClick={closeModal}
@@ -140,14 +139,14 @@ const Projects = () => {
                 </div>
               </div>
               <div className="p-6 space-y-4">
-                <h2 className="text-2xl font-bold font-orbitron text-white">{selected.title}</h2>
+                <h2 className="text-2xl font-semibold font-orbitron text-pro-offwhite tracking-wide">{selected.title}</h2>
                 <p className="text-gray-300 leading-relaxed text-sm md:text-base">{selected.description}</p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
                     href={selected.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-white text-sm transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-pro-steel/70 hover:bg-pro-steel text-pro-offwhite text-sm transition-colors border border-transparent hover:border-cyber-blue/40"
                   >
                     <span>GitHub</span>
                   </a>
@@ -156,7 +155,7 @@ const Projects = () => {
                       href={selected.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cyber-blue hover:bg-cyber-blue/80 text-white text-sm transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cyber-blue/90 hover:bg-cyber-blue text-white text-sm transition-colors shadow-sm hover:shadow-[0_0_0_1px_#38bdf8]"
                     >
                       <span>Live Demo</span>
                     </a>

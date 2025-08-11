@@ -51,7 +51,7 @@ const About = () => {
 
   return (
     <motion.div
-      className="pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full"
+      className="section pt-28 pb-20 px-4 sm:px-6 md:px-8 w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -60,7 +60,7 @@ const About = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <motion.h1
-            className="text-3xl md:text-4xl font-bold mb-4 font-orbitron"
+            className="text-3xl md:text-4xl font-semibold mb-4 font-orbitron tracking-wide"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -75,17 +75,14 @@ const About = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Enhanced Photo Gallery */}
           <motion.div
-            className="relative mx-auto lg:mx-0"
+      className="relative mx-auto lg:mx-0 card-base p-4"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ 
-              y: -5,
-              transition: { duration: 0.3, ease: "easeOut" }
-            }}
+      whileHover={{ y: -4, transition: { duration: 0.3, ease: 'easeOut' } }}
           >
             {/* Main Image Display */}
             <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-2xl overflow-hidden border-2 border-cyber-blue shadow-2xl">
@@ -149,31 +146,7 @@ const About = () => {
               </div>
             </div>
             
-            {/* Decorative elements with animation */}
-            <motion.div 
-              className="absolute -bottom-6 -right-6 w-full h-full border-2 border-cyber-purple rounded-2xl -z-10"
-              animate={{ 
-                x: [0, 5, 0],
-                y: [0, -5, 0] 
-              }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            ></motion.div>
-            <motion.div 
-              className="absolute -bottom-12 -right-12 w-full h-full border-2 border-cyber-neon rounded-2xl -z-20"
-              animate={{ 
-                x: [0, -8, 0],
-                y: [0, 8, 0] 
-              }}
-              transition={{ 
-                duration: 8, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            ></motion.div>
+            {/* Removed extra floating frame animations for cleaner look */}
             
             {/* Thumbnail preview */}
             <div className="flex justify-center mt-6 space-x-3">
@@ -260,10 +233,10 @@ const About = () => {
             
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-3 font-orbitron">Education</h3>
-              <div className="bg-cyber-darker p-4 rounded-lg border border-gray-800">
+              <div className="card-base p-4">
                 <p className="font-medium">Siddaganga Institute of Technology</p>
                 <p className="text-cyber-blue">B.E. in Computer Science (AI & ML)</p>
-                <p className="text-sm text-gray-400">2022 - 2026 (Expected)</p>
+                <p className="text-sm text-gray-400">2023 - 2027</p>
               </div>
             </div>
           </motion.div>
@@ -310,11 +283,11 @@ const About = () => {
             ].map((photo, index) => (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-xl bg-cyber-darker border border-gray-700/30 hover:border-cyber-blue/50 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
+                className="group relative overflow-hidden rounded-xl card-base transition-all duration-300"
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.55, delay: 0.9 + index * 0.1 }}
+                whileHover={{ scale: 1.015, y: -4 }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -337,10 +310,11 @@ const About = () => {
                 </div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 ring-1 ring-cyber-blue/0 group-hover:ring-cyber-blue/30 transition-all duration-300 rounded-xl"></div>
+        <div className="absolute inset-0 ring-1 ring-cyber-blue/0 group-hover:ring-cyber-blue/30 transition-all duration-300 rounded-xl"></div>
               </motion.div>
             ))}
           </div>
+      <div className="section-divider" />
         </motion.div>
       </div>
     </motion.div>

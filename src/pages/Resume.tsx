@@ -101,7 +101,7 @@ const Resume = () => {
                 <div className="mb-4">
                   <h4 className="text-lg font-semibold">B.E. Computer Science (AI & ML)</h4>
                   <p className="text-cyber-blue">Siddaganga Institute of Technology</p>
-                  <p className="text-sm text-gray-400">2022 - 2026 (Expected)</p>
+                  <p className="text-sm text-gray-400">2023 - 2027</p>
                   <p className="mt-2">
                     Courses: Data Structures & Algorithms, Machine Learning, Artificial Intelligence, 
                     Database Management Systems, Computer Networks
@@ -129,7 +129,7 @@ const Resume = () => {
               </p>
               <ul className="mt-4 space-y-2 text-sm text-gray-400">
                 <li className="flex items-center gap-2"><FaMapMarkerAlt className="text-cyber-blue" /> Tumkur, India</li>
-                <li className="flex items-center gap-2"><FaEnvelope className="text-cyber-blue" /> abhisek@example.com</li>
+                <li className="flex items-center gap-2"><FaEnvelope className="text-cyber-blue" /> abhishekhiremath0424@gmail.com</li>
               </ul>
             </div>
             {/* Key Skills */}

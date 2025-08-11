@@ -11,11 +11,11 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
-      className="relative bg-cyber-darker rounded-lg overflow-hidden border border-gray-800 hover:border-cyber-blue/50 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-blue/70"
+      className="relative card-base overflow-hidden group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-blue/40"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
       role={onSelect ? 'button' : undefined}
       tabIndex={onSelect ? 0 : undefined}
   onClick={() => onSelect?.(project)}
@@ -43,15 +43,15 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       
       {/* Content */}
       <div className="p-6 relative z-20">
-        <h3 className="text-xl font-bold text-white mb-2 font-orbitron">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
+        <h3 className="text-xl font-semibold mb-2 font-orbitron text-pro-offwhite tracking-wide">{project.title}</h3>
+        <p className="text-muted mb-4 text-sm leading-relaxed">{project.description}</p>
         
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2 mb-5">
           {project.techStack.map((tech, i) => (
             <span 
               key={i} 
-              className="px-2 py-1 bg-cyber-blue/10 text-cyber-blue rounded-md text-xs"
+              className="px-2 py-1 bg-pro-steel/60 text-cyber-blue rounded-md text-[10px] border border-pro-steel/80"
             >
               {tech}
             </span>
@@ -59,12 +59,12 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
         </div>
         
         {/* Links */}
-        <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-3 pt-1">
           <a 
             href={project.githubUrl} 
             target="_blank" 
             rel="noreferrer"
-            className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-colors"
+      className="p-2 rounded-md bg-pro-steel/60 hover:bg-pro-steel text-pro-offwhite transition-colors border border-transparent hover:border-cyber-blue/40"
             onClick={(e) => e.stopPropagation()}
             aria-label="GitHub Repository"
           >
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
               href={project.liveUrl} 
               target="_blank" 
               rel="noreferrer"
-              className="p-2 rounded-full bg-cyber-blue hover:bg-cyber-blue/80 text-white transition-colors"
+              className="p-2 rounded-md bg-cyber-blue/90 hover:bg-cyber-blue text-white transition-colors shadow-sm hover:shadow-[0_0_0_1px_#38bdf8]"
               onClick={(e) => e.stopPropagation()}
               aria-label="Live Demo"
             >
