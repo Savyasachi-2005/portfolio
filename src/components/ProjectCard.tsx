@@ -31,20 +31,20 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       {/* Glass effect overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-darker/80 z-10"></div>
       
-      {/* Project image (show full without cropping) */}
-      <div className="h-48 bg-black flex items-center justify-center">
+    {/* Project image (responsive height) */}
+    <div className="h-40 sm:h-48 bg-black flex items-center justify-center">
         <img
           src={project.imageUrl}
           alt={project.title}
-          className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 px-2"
           loading="lazy"
         />
       </div>
       
       {/* Content */}
       <div className="p-6 relative z-20">
-        <h3 className="text-xl font-semibold mb-2 font-orbitron text-pro-offwhite tracking-wide">{project.title}</h3>
-        <p className="text-muted mb-4 text-sm leading-relaxed">{project.description}</p>
+  <h3 className="text-lg sm:text-xl font-semibold mb-2 font-orbitron text-pro-offwhite tracking-wide">{project.title}</h3>
+  <p className="text-muted mb-4 text-[13px] sm:text-sm leading-relaxed">{project.description}</p>
         
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2 mb-5">

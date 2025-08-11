@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-cyber-dark pt-20 py-16 relative overflow-hidden">
+    <section className="section w-full min-h-screen bg-cyber-dark pt-28 pb-20 relative overflow-hidden">
       {/* Background effect - Full viewport coverage */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 opacity-10" 
@@ -71,7 +71,7 @@ const Contact = () => {
         ></motion.div>
       </div>
       
-  <div className="container mx-auto max-w-6xl px-6 relative z-10 flex flex-col justify-center min-h-[calc(100vh-5rem)]">
+  <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 flex flex-col justify-center min-h-[calc(100vh-5rem)]">
         {/* Header Section */}
         <div className="text-center mb-12">
           <motion.h1
@@ -99,7 +99,7 @@ const Contact = () => {
         </div>
 
   {/* Main Content Grid */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-10 w-full">
+  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[2fr_1.4fr_1fr] gap-8 xl:gap-10 w-full">
           {/* Contact Form - Left Side */}
           <motion.div
             className="bg-cyber-dark/30 backdrop-blur-sm p-6 rounded-lg border border-gray-700/30 shadow-lg"

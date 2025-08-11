@@ -51,7 +51,7 @@ const About = () => {
 
   return (
     <motion.div
-      className="section pt-28 pb-20 px-4 sm:px-6 md:px-8 w-full"
+      className="section pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -75,7 +75,7 @@ const About = () => {
           />
         </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Enhanced Photo Gallery */}
           <motion.div
       className="relative mx-auto lg:mx-0 card-base p-4"
@@ -85,7 +85,7 @@ const About = () => {
       whileHover={{ y: -4, transition: { duration: 0.3, ease: 'easeOut' } }}
           >
             {/* Main Image Display */}
-            <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-2xl overflow-hidden border-2 border-cyber-blue shadow-2xl">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-cyber-blue shadow-2xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={selectedImage}
@@ -149,11 +149,11 @@ const About = () => {
             {/* Removed extra floating frame animations for cleaner look */}
             
             {/* Thumbnail preview */}
-            <div className="flex justify-center mt-6 space-x-3">
+            <div className="flex justify-center mt-5 space-x-2 sm:space-x-3">
               {galleryImages.map((image, index) => (
                 <motion.button
                   key={index}
-                  className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-500 ${
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-500 ${
                     selectedImage === index 
                       ? 'border-cyber-blue scale-110 shadow-lg shadow-cyber-blue/30' 
                       : 'border-gray-600 hover:border-gray-400'

@@ -82,6 +82,52 @@ img {
   transform: translateZ(0);
 }
 
+/* ========================= Animations & Effects ========================= */
+/* Gradient animated text (used for name) */
+.gradient-text { 
+  background: linear-gradient(90deg,#38bdf8,#6366f1,#38bdf8); 
+  background-size:200% 100%; 
+  -webkit-background-clip:text; 
+  background-clip:text; 
+  color:transparent; 
+  animation: gradientShift 8s linear infinite; 
+}
+@keyframes gradientShift { 
+  0% { background-position:0% 50%; } 
+  50% { background-position:100% 50%; } 
+  100% { background-position:0% 50%; } 
+}
+
+/* Subtle vertical float (icons, badges) */
+.icon-float { animation: floatY 6s ease-in-out infinite; }
+@keyframes floatY { 
+  0%,100% { transform: translateY(-2px); } 
+  50% { transform: translateY(3px); } 
+}
+
+/* Button shimmer on hover */
+.btn-shimmer { position:relative; overflow:hidden; }
+.btn-shimmer::after { 
+  content:""; position:absolute; top:0; left:-150%; width:50%; height:100%; 
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,0.35),transparent); 
+  transform:skewX(-20deg); pointer-events:none; 
+}
+.btn-shimmer:hover::after { animation: shimmer 1s ease; }
+@keyframes shimmer { to { left:150%; } }
+
+/* Floating ambient orb for non-home pages */
+.animated-orb { 
+  position:fixed; top:15%; left:60%; width:420px; height:420px; 
+  background:radial-gradient(circle at 30% 30%, rgba(99,102,241,0.38), transparent 70%); 
+  filter:blur(60px); opacity:0.25; pointer-events:none; z-index:-1; 
+  animation: orbDrift 18s ease-in-out infinite alternate; 
+}
+@keyframes orbDrift { 
+  0% { transform:translate3d(-40px,-20px,0) scale(1); } 
+  50% { transform:translate3d(30px,40px,0) scale(1.06); } 
+  100% { transform:translate3d(-20px,10px,0) scale(0.95); } 
+}
+
 /* Specifically for About page images */
 .about-image-quality {
   image-rendering: -webkit-optimize-contrast !important;
@@ -99,4 +145,25 @@ img {
   body { background:#ffffff; color:#1e293b; }
   .card-base { background:rgba(255,255,255,0.8); border-color:#e2e8f0; }
   a { color:#38bdf8; }
+}
+
+/* Dotted background layer for all non-home pages (apply .with-dots on outer wrapper) */
+.with-dots::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at center, #38bdf8 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
+.with-dots::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 40% 35%, rgba(56,189,248,0.18), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: .45;
 }

@@ -5,9 +5,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-cyber-darker py-8 mt-16 w-full">
+    <footer className="bg-cyber-darker py-8 mt-10 w-full">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 max-w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {/* Logo and tagline */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
@@ -15,7 +15,7 @@ const Footer = () => {
                 Abhisek<span className="text-cyber-neon">.dev</span>
               </span>
             </Link>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-400 max-w-xs">
               Your friendly neighborhood developer
             </p>
           </div>
@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Social links */}
           <div className="space-y-4">
             <h3 className="text-lg font-medium text-white">Connect</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-5 md:space-x-4">
               <a 
                 href="https://github.com/Savyasachi-2005" 
                 target="_blank" 

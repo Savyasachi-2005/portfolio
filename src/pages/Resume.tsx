@@ -145,11 +145,11 @@ const Resume = () => {
             <div className="bg-cyber-darker border border-gray-800 rounded-lg p-6">
               <h3 className="font-orbitron font-semibold text-lg mb-3">Links</h3>
               <div className="space-y-3 text-sm">
-                <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
+                <a href="https://github.com/Savyasachi-2005" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
                   <span className="w-8 h-8 rounded-md flex items-center justify-center bg-cyber-dark border border-gray-700 group-hover:border-cyber-blue transition-colors"><FaGithub /></span>
                   <span className="text-gray-300 group-hover:text-cyber-blue transition-colors">GitHub</span>
                 </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
+                <a href="https://www.linkedin.com/in/abhishek-hiremath-3020692a3" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
                   <span className="w-8 h-8 rounded-md flex items-center justify-center bg-cyber-dark border border-gray-700 group-hover:border-cyber-blue transition-colors"><FaLinkedin /></span>
                   <span className="text-gray-300 group-hover:text-cyber-blue transition-colors">LinkedIn</span>
                 </a>

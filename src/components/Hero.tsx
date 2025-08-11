@@ -3,24 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center py-20 overflow-hidden">
-      {/* Background animation */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-cyber-dark">
-          {/* Grid lines */}
-          <div className="absolute inset-0 opacity-10" style={{ 
-            backgroundImage: `linear-gradient(to right, #38bdf8 1px, transparent 1px), 
-                              linear-gradient(to bottom, #38bdf8 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }}></div>
-          
-          {/* Glowing orbs */}
-          <div className="absolute left-1/4 top-1/4 w-64 h-64 rounded-full bg-cyber-blue opacity-20 blur-3xl animate-pulse-slow"></div>
-          <div className="absolute right-1/4 bottom-1/4 w-64 h-64 rounded-full bg-cyber-purple opacity-20 blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-        </div>
-      </div>
+  <section className="relative min-h-[calc(100vh-120px)] sm:min-h-[calc(100vh-140px)] w-full flex items-center justify-center py-10 md:py-16 overflow-hidden px-3 sm:px-6">
 
-      <div className="w-full relative z-10 px-4 sm:px-6 md:px-8 lg:px-12">
+  <div className="w-full relative z-10 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +16,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron text-white mb-4 tracking-tight"
+            className="gradient-text text-[2.3rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl font-bold font-orbitron mb-4 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -51,7 +36,7 @@ const Hero = () => {
           </motion.div>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-xl md:max-w-2xl mx-auto mb-8 px-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -60,20 +45,20 @@ const Hero = () => {
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Link 
               to="/resume"
-              className="px-6 py-3 rounded-md bg-cyber-blue hover:bg-cyber-blue/80 text-white font-medium transition-all duration-300 w-full sm:w-auto text-center animate-glow glow-border"
+              className="btn-shimmer px-5 py-3 rounded-md bg-cyber-blue hover:bg-cyber-blue/80 text-white font-medium transition-all duration-300 w-full sm:w-auto text-center text-sm sm:text-base shadow-[0_0_0_1px_rgba(56,189,248,0.4)]"
             >
               View Resume
             </Link>
             <Link 
               to="/contact"
-              className="px-6 py-3 rounded-md bg-transparent border border-cyber-blue text-cyber-blue hover:bg-cyber-blue/10 font-medium transition-all duration-300 w-full sm:w-auto text-center"
+              className="btn-shimmer px-5 py-3 rounded-md bg-transparent border border-cyber-blue text-cyber-blue hover:bg-cyber-blue/10 font-medium transition-all duration-300 w-full sm:w-auto text-center text-sm sm:text-base"
             >
               Contact Me
             </Link>
