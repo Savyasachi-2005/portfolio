@@ -31,18 +31,17 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-colors duration-300 border-b ${
-        scrolled ? 'bg-cyber-darker/95 backdrop-blur-md border-pro-steel/60 shadow-md' : 'bg-transparent border-transparent'
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'backdrop-blur-md/80 bg-[#0f172aee] shadow-[0_2px_12px_-4px_rgba(0,0,0,0.55)] border-b border-cyber-blue/20'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
-      {/* Mirror/Glass effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent backdrop-blur-md border-b border-white/10"></div>
-      
-      <nav className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-4 relative z-10">
-        <div className="flex items-center justify-between w-full">
-          <Link to="/" className="flex items-center">
-            <span className="font-orbitron text-xl md:text-2xl font-semibold text-cyber-blue tracking-wide">
+      <nav className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-3 md:py-4 relative">
+        <div className="flex items-center justify-between w-full gap-6">
+          <Link to="/" className="flex items-center group">
+            <span className="gradient-text bg-clip-text font-orbitron text-lg md:text-xl font-semibold tracking-wide select-none">
               Abhishek<span className="text-cyber-neon">.dev</span>
             </span>
           </Link>
@@ -64,56 +63,62 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-      <div className="hidden md:flex md:items-center md:space-x-6">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path} 
-        className={`relative px-1 py-2 text-sm font-medium tracking-wide transition-colors ${
-                  location.pathname === link.path 
-                    ? 'text-cyber-blue' 
-                    : 'text-gray-300 hover:text-cyber-blue'
-                }`}
-              >
-                {link.title}
-                {location.pathname === link.path && (
-                  <motion.span 
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-cyber-blue" 
-                    layoutId="navbar-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.25 }}
-                  />
-                )}
-              </Link>
-            ))}
+          <div className="hidden md:flex md:items-center md:space-x-7">
+            {navLinks.map((link) => {
+              const active = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`relative px-1 py-2 text-[13px] font-medium tracking-wide transition-colors after:absolute after:left-0 after:bottom-1 after:h-[2px] after:rounded-full after:bg-cyber-blue/70 after:w-0 hover:after:w-full after:transition-all after:duration-300 ${
+                    active ? 'text-cyber-blue after:w-full' : 'text-gray-300 hover:text-cyber-blue'
+                  }`}
+                >
+                  {link.title}
+                  {active && (
+                    <motion.span
+                      layoutId="navbar-indicator-glow"
+                      className="absolute inset-x-0 -bottom-[6px] mx-auto h-[6px] w-6 rounded-full bg-cyber-blue/0 shadow-[0_0_12px_2px_rgba(56,189,248,0.45)] pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <motion.div 
-            className="md:hidden bg-cyber-darker/95 backdrop-blur-md rounded-xl mt-4 shadow-lg border border-pro-steel/60"
-            initial={{ opacity: 0, y: -12 }}
+          <motion.div
+            className="md:hidden mt-3 rounded-xl border border-cyber-blue/20 bg-[#0f172add] backdrop-blur-xl shadow-[0_4px_28px_-8px_rgba(0,0,0,0.65)] overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="flex flex-col space-y-3 px-4 py-5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname === link.path
-                      ? 'bg-pro-steel/70 text-cyber-blue border border-cyber-blue/30'
-                      : 'text-gray-300 hover:bg-pro-steel/60 hover:text-white'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.title}
-                </Link>
-              ))}
-            </div>
+            <ul className="flex flex-col py-3">
+              {navLinks.map((link) => {
+                const active = location.pathname === link.path;
+                return (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-5 py-3 text-sm font-medium tracking-wide transition-colors ${
+                        active
+                          ? 'text-cyber-blue bg-cyber-blue/10'
+                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </motion.div>
         )}
       </nav>
