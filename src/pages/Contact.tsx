@@ -294,12 +294,13 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Extra Content / FAQ - Right Column (only on xl) */}
+          {/* FAQ now visible on all sizes: full width below content on small, column on xl */}
           <motion.div
-            className="space-y-6 hidden xl:block"
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            className="space-y-6 col-span-1 xl:col-auto mt-4 xl:mt-0"
+            initial={{ opacity: 0, y: 40, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <FAQ />
           </motion.div>
