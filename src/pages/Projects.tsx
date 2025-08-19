@@ -95,7 +95,7 @@ const Projects = () => {
           </motion.p>
         </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+  <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {projectsData.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -109,7 +109,7 @@ const Projects = () => {
 
   {selected && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
             aria-modal="true"
             role="dialog"
           >
@@ -118,7 +118,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 32 }}
-              className="relative w-full max-w-3xl card-base overflow-hidden"
+              className="relative w-full max-w-3xl card-base overflow-hidden max-h-[90vh] flex flex-col"
             >
               <button
                 onClick={closeModal}
@@ -127,7 +127,7 @@ const Projects = () => {
               >
                 ×
               </button>
-              <div className="h-60 relative group bg-black flex items-center justify-center">
+              <div className="h-48 sm:h-56 md:h-60 relative group bg-black flex items-center justify-center">
                 <img src={selected.imageUrl} alt={selected.title} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 to-black/60" />
                 <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
@@ -138,7 +138,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-              <div className="p-6 space-y-4">
+              <div className="p-5 sm:p-6 space-y-4 overflow-y-auto">
                 <h2 className="text-2xl font-semibold font-orbitron text-pro-offwhite tracking-wide">{selected.title}</h2>
                 <p className="text-gray-300 leading-relaxed text-sm md:text-base">{selected.description}</p>
                 <div className="flex flex-wrap gap-3 pt-2">

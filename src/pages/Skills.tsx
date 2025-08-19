@@ -102,7 +102,7 @@ const Skills = () => {
         ></motion.span>
         <span className="glow-text">{title}</span>
       </motion.h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-5 md:gap-6 justify-items-center max-w-7xl mx-auto">
+  <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 sm:gap-4 md:gap-5 lg:gap-6 justify-items-center max-w-7xl mx-auto">
         {skills.map((skill, index) => (
           <SkillBadge key={skill.name} skill={skill} index={index} />
         ))}
