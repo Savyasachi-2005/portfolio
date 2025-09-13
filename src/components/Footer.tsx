@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
               <span className="font-orbitron text-xl font-bold text-cyber-blue">
-                Abhishek<span className="text-cyber-neon">.dev</span>
+                Abhishek<span className="text-cyber-neon"></span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 max-w-xs">

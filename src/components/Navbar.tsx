@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full gap-6">
           <Link to="/" className="flex items-center group">
             <span className="gradient-text bg-clip-text font-orbitron text-lg md:text-xl font-semibold tracking-wide select-none">
-              Abhishek<span className="text-cyber-neon">.dev</span>
+              Abhishek<span className="text-cyber-neon"></span>
             </span>
           </Link>
 
