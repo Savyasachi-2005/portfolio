@@ -1,0 +1,29 @@
+:root {
+  /* Default theme variables (Cyberpunk) */
+  --theme-bg: #0f172a;
+  --theme-bg-alt: #111827;
+  --theme-text: #f1f5f9;
+  --theme-text-alt: #94a3b8;
+  --theme-accent: #38bdf8;
+  --theme-accent-alt: #00ffa3;
+  --theme-border: rgba(56, 189, 248, 0.2);
+  --theme-card-bg: rgba(17, 24, 39, 0.8);
+  --theme-card-hover: rgba(30, 41, 59, 0.8);
+  --theme-button-bg: #38bdf8;
+  --theme-button-hover: #0ea5e9;
+}
+
+/* Professional theme */
+.theme-pro {
+  --theme-bg: #f8f9fa;
+  --theme-bg-alt: #ffffff;
+  --theme-text: #1e293b;
+  --theme-text-alt: #475569;
+  --theme-accent: #1e40af;
+  --theme-accent-alt: #3b82f6;
+  --theme-border: rgba(30, 41, 59, 0.1);
+  --theme-card-bg: #ffffff;
+  --theme-card-hover: #f1f5f9;
+  --theme-button-bg: #1e40af;
+  --theme-button-hover: #1e3a8a;
+}

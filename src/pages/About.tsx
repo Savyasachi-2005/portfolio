@@ -65,10 +65,10 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            About <span className="text-cyber-blue">Me</span>
+            About <span className="text-accent">Me</span>
           </motion.h1>
           <motion.div
-            className="w-20 h-1 bg-cyber-blue mx-auto"
+            className="w-20 h-1 bg-accent mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 80 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -85,7 +85,7 @@ const About = () => {
       whileHover={{ y: -4, transition: { duration: 0.3, ease: 'easeOut' } }}
           >
             {/* Main Image Display */}
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-cyber-blue shadow-2xl mx-auto">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-accent shadow-2xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={selectedImage}
@@ -120,7 +120,7 @@ const About = () => {
               </AnimatePresence>
               
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t" style={{ backgroundImage: 'linear-gradient(to top, color-mix(in srgb, var(--bg-body) 20%, transparent), transparent)' }}></div>
               
               {/* Navigation dots */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -129,8 +129,8 @@ const About = () => {
                     key={index}
                     className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                       selectedImage === index 
-                        ? 'bg-cyber-blue border-cyber-blue shadow-lg shadow-cyber-blue/50' 
-                        : 'bg-transparent border-white/50 hover:border-white'
+                        ? 'bg-accent border-accent shadow-accent-glow' 
+                        : 'bg-transparent border-[var(--text-secondary)]/50 hover:border-[var(--text-primary)]'
                     }`}
                     onClick={() => setSelectedImage(index)}
                     whileHover={{ 
@@ -191,7 +191,7 @@ const About = () => {
                   {/* Active indicator */}
                   {selectedImage === index && (
                     <motion.div
-                      className="absolute inset-0 ring-2 ring-cyber-blue ring-opacity-50"
+                      className="absolute inset-0 ring-2 ring-accent ring-opacity-50"
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -209,12 +209,12 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-bold font-orbitron">Abhishek Hiremath</h2>
-            <p className="text-lg text-gray-300 font-light">
-              <span className="text-cyber-blue font-normal">Student & Developer</span>
+            <h2 className="text-2xl font-bold font-orbitron text-theme-text">Abhishek Hiremath</h2>
+            <p className="text-lg text-theme-text-alt font-light">
+              <span className="text-theme-accent font-normal">Student & Developer</span>
             </p>
             
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-theme-text-alt">
               <p>
                 Hi there! I'm a passionate developer and a 3rd year Computer Science Engineering student specializing in 
                 AI and Machine Learning at Siddaganga Institute of Technology.
@@ -232,11 +232,11 @@ const About = () => {
             </div>
             
             <div className="pt-4">
-              <h3 className="text-xl font-semibold mb-3 font-orbitron">Education</h3>
-              <div className="card-base p-4">
-                <p className="font-medium">Siddaganga Institute of Technology</p>
-                <p className="text-cyber-blue">B.E. in Computer Science (AI & ML)</p>
-                <p className="text-sm text-gray-400">2023 - 2027</p>
+              <h3 className="text-xl font-semibold mb-3 font-orbitron text-theme-text">Education</h3>
+              <div className="bg-theme-card-bg p-4 rounded-lg shadow-lg hover:bg-theme-card-hover transition-colors duration-300">
+                <p className="font-medium text-theme-text">Siddaganga Institute of Technology</p>
+                <p className="text-theme-accent">B.E. in Computer Science (AI & ML)</p>
+                <p className="text-sm text-theme-text-alt">2023 - 2027</p>
               </div>
             </div>
           </motion.div>
@@ -250,10 +250,10 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold font-orbitron mb-4">
-              My <span className="text-cyber-blue">Journey</span>
+            <h3 className="text-2xl font-bold font-orbitron mb-4 text-theme-text">
+              My <span className="text-theme-accent">Journey</span>
             </h3>
-            <div className="w-16 h-1 bg-cyber-blue mx-auto"></div>
+            <div className="w-16 h-1 bg-theme-accent mx-auto"></div>
           </div>
           
           {/* Photo Grid */}
@@ -283,7 +283,7 @@ const About = () => {
             ].map((photo, index) => (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-xl card-base transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl bg-theme-card-bg transition-all duration-300"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.9 + index * 0.1 }}
@@ -302,15 +302,15 @@ const About = () => {
                 </div>
                 
                 {/* Overlay content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-theme-bg to-transparent">
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="font-semibold text-white mb-1">{photo.title}</h4>
-                    <p className="text-sm text-gray-300">{photo.description}</p>
+                    <h4 className="font-semibold text-theme-text mb-1">{photo.title}</h4>
+                    <p className="text-sm text-theme-text-alt">{photo.description}</p>
                   </div>
                 </div>
                 
                 {/* Glow effect */}
-        <div className="absolute inset-0 ring-1 ring-cyber-blue/0 group-hover:ring-cyber-blue/30 transition-all duration-300 rounded-xl"></div>
+        <div className="absolute inset-0 ring-1 ring-accent/0 group-hover:ring-accent/30 transition-all duration-300 rounded-xl"></div>
               </motion.div>
             ))}
           </div>

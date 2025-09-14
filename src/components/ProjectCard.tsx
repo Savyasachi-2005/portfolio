@@ -11,7 +11,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
-      className="relative card-base overflow-hidden group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-blue/40"
+      className="relative bg-theme-card-bg rounded-lg shadow-lg overflow-hidden group cursor-pointer hover:bg-theme-card-hover transition-colors duration-300 focus:outline-none focus:ring-2 ring-theme-accent"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -29,10 +29,10 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       data-project-card
     >
       {/* Glass effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-darker/80 z-10"></div>
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-theme-bg/85 z-10"></div>
       
     {/* Project image (responsive height) */}
-    <div className="h-40 sm:h-48 bg-black flex items-center justify-center">
+    <div className="h-40 sm:h-48 bg-theme-bg flex items-center justify-center">
         <img
           src={project.imageUrl}
           alt={project.title}
@@ -43,15 +43,15 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       
       {/* Content */}
       <div className="p-6 relative z-20">
-  <h3 className="text-lg sm:text-xl font-semibold mb-2 font-orbitron text-pro-offwhite tracking-wide">{project.title}</h3>
-  <p className="text-muted mb-4 text-[13px] sm:text-sm leading-relaxed">{project.description}</p>
+  <h3 className="text-lg sm:text-xl font-semibold mb-2 font-orbitron text-theme-text tracking-wide">{project.title}</h3>
+  <p className="text-theme-text-alt mb-4 text-[13px] sm:text-sm leading-relaxed">{project.description}</p>
         
         {/* Tech stack */}
         <div className="flex flex-wrap gap-2 mb-5">
           {project.techStack.map((tech, i) => (
             <span 
               key={i} 
-              className="px-2 py-1 bg-pro-steel/60 text-cyber-blue rounded-md text-[10px] border border-pro-steel/80"
+              className="px-2 py-1 bg-theme-card-hover text-theme-accent rounded-md text-[10px] border border-theme-accent/40"
             >
               {tech}
             </span>
@@ -64,7 +64,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
             href={project.githubUrl} 
             target="_blank" 
             rel="noreferrer"
-      className="p-2 rounded-md bg-pro-steel/60 hover:bg-pro-steel text-pro-offwhite transition-colors border border-transparent hover:border-cyber-blue/40"
+            className="p-2 rounded-md bg-theme-card-hover hover:bg-theme-button-bg text-theme-accent hover:text-white transition-colors border border-transparent hover:border-theme-accent"
             onClick={(e) => e.stopPropagation()}
             aria-label="GitHub Repository"
           >
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
               href={project.liveUrl} 
               target="_blank" 
               rel="noreferrer"
-              className="p-2 rounded-md bg-cyber-blue/90 hover:bg-cyber-blue text-white transition-colors shadow-sm hover:shadow-[0_0_0_1px_#38bdf8]"
+              className="p-2 rounded-md bg-theme-button-bg hover:bg-theme-button-hover text-white transition-colors shadow-sm"
               onClick={(e) => e.stopPropagation()}
               aria-label="Live Demo"
             >

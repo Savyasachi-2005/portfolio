@@ -72,21 +72,21 @@ const Projects = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <motion.h1
-            className="text-3xl md:text-4xl font-bold mb-4 font-orbitron"
+            className="text-3xl md:text-4xl font-bold mb-4 font-orbitron text-theme-text"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            My <span className="text-cyber-blue">Projects</span>
+            My <span className="text-theme-accent">Projects</span>
           </motion.h1>
           <motion.div
-            className="w-20 h-1 bg-cyber-blue mx-auto"
+            className="w-20 h-1 bg-theme-accent mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 80 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           />
           <motion.p
-            className="mt-6 max-w-2xl mx-auto text-gray-300"
+            className="mt-6 max-w-2xl mx-auto text-theme-text-alt"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -118,35 +118,35 @@ const Projects = () => {
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 32 }}
-              className="relative w-full max-w-3xl card-base overflow-hidden max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-3xl bg-theme-card-bg rounded-lg overflow-hidden max-h-[90vh] flex flex-col shadow-xl"
             >
               <button
                 onClick={closeModal}
                 aria-label="Close"
-                className="absolute top-3 right-3 z-10 bg-gray-800/70 hover:bg-gray-700 text-gray-200 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+                className="absolute top-3 right-3 z-10 bg-theme-bg/70 hover:bg-theme-bg text-theme-text w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
               >
                 ×
               </button>
-              <div className="h-48 sm:h-56 md:h-60 relative group bg-black flex items-center justify-center">
+              <div className="h-48 sm:h-56 md:h-60 relative group bg-theme-bg flex items-center justify-center">
                 <img src={selected.imageUrl} alt={selected.title} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 to-black/60" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-theme-bg/10 to-theme-bg/60" />
                 <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
                   {selected.techStack.map((t) => (
-                    <span key={t} className="px-2 py-1 text-[10px] bg-cyber-blue/20 text-cyber-blue rounded-md backdrop-blur-sm border border-cyber-blue/30">
+                    <span key={t} className="px-2 py-1 text-[10px] bg-theme-card-bg text-theme-accent rounded-md backdrop-blur-sm border border-theme-accent/30">
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="p-5 sm:p-6 space-y-4 overflow-y-auto">
-                <h2 className="text-2xl font-semibold font-orbitron text-pro-offwhite tracking-wide">{selected.title}</h2>
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{selected.description}</p>
+                <h2 className="text-2xl font-semibold font-orbitron text-theme-text tracking-wide">{selected.title}</h2>
+                <p className="text-theme-text-alt leading-relaxed text-sm md:text-base">{selected.description}</p>
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
                     href={selected.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-pro-steel/70 hover:bg-pro-steel text-pro-offwhite text-sm transition-colors border border-transparent hover:border-cyber-blue/40"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-theme-button-bg hover:bg-theme-button-hover text-white text-sm transition-colors"
                   >
                     <span>GitHub</span>
                   </a>
@@ -155,7 +155,7 @@ const Projects = () => {
                       href={selected.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cyber-blue/90 hover:bg-cyber-blue text-white text-sm transition-colors shadow-sm hover:shadow-[0_0_0_1px_#38bdf8]"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-theme-accent hover:bg-theme-accent-alt text-white text-sm transition-colors shadow-sm"
                     >
                       <span>Live Demo</span>
                     </a>

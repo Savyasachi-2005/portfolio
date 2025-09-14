@@ -61,18 +61,19 @@ const Contact = () => {
   };
 
   return (
-    <section className="section w-full min-h-screen bg-cyber-dark pt-28 pb-20 relative overflow-hidden">
+    <section className="section w-full min-h-screen pt-28 pb-20 relative overflow-hidden">
       {/* Background effect - Full viewport coverage */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 opacity-10" 
           style={{ 
-            backgroundImage: `radial-gradient(circle at center, #38bdf8 1px, transparent 1px)`,
+            backgroundImage: 'radial-gradient(circle at center, var(--accent) 1px, transparent 1px)',
             backgroundSize: '30px 30px'
           }}
         ></div>
         {/* Glowing orbs */}
         <motion.div 
-          className="absolute -left-20 top-40 w-80 h-80 rounded-full bg-cyber-blue opacity-5 blur-3xl"
+          className="absolute -left-20 top-40 w-80 h-80 rounded-full opacity-5 blur-3xl"
+          style={{ background: 'var(--accent)' }}
           animate={{ 
             x: [0, 20, 0],
             y: [0, -30, 0],
@@ -80,7 +81,8 @@ const Contact = () => {
           transition={{ duration: 8, repeat: Infinity }}
         ></motion.div>
         <motion.div 
-          className="absolute right-0 bottom-40 w-64 h-64 rounded-full bg-cyber-purple opacity-5 blur-3xl"
+          className="absolute right-0 bottom-40 w-64 h-64 rounded-full opacity-5 blur-3xl"
+          style={{ background: 'var(--accent-glow)' }}
           animate={{ 
             x: [0, -30, 0],
             y: [0, 40, 0],
@@ -93,21 +95,21 @@ const Contact = () => {
         {/* Header Section */}
         <div className="text-center mb-12">
           <motion.h1
-            className="text-2xl md:text-4xl font-bold mb-4 font-orbitron glow-text text-white"
+            className="text-2xl md:text-4xl font-bold mb-4 font-orbitron text-theme-text"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Get In <span className="text-cyber-blue">Touch</span>
+            Get In <span className="text-theme-accent">Touch</span>
           </motion.h1>
           <motion.div
-            className="w-20 h-1 bg-cyber-blue mx-auto"
+            className="w-20 h-1 bg-theme-accent mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 80 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           />
           <motion.p
-            className="mt-4 mx-auto text-gray-300 text-base max-w-xl"
+            className="mt-4 mx-auto text-theme-text-alt text-base max-w-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -125,19 +127,19 @@ const Contact = () => {
   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[2fr_1.4fr_1fr] gap-8 xl:gap-10 w-full">
           {/* Contact Form - Left Side */}
           <motion.div
-            className="bg-cyber-dark/30 backdrop-blur-sm p-6 rounded-lg border border-gray-700/30 shadow-lg"
+            className="bg-theme-card-bg/80 backdrop-blur-sm p-6 rounded-lg border border-theme-accent/30 shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {isSubmitted ? (
               <div className="text-center py-8">
-                <div className="text-5xl mb-4 text-cyber-blue">✓</div>
-                <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
-                <p className="text-gray-300 mb-4">Your message has been sent successfully.</p>
+                <div className="text-5xl mb-4 text-theme-accent">✓</div>
+                <h3 className="text-2xl font-bold mb-2 text-theme-text">Thank You!</h3>
+                <p className="text-theme-text-alt mb-4">Your message has been sent successfully.</p>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2 bg-cyber-blue text-white rounded-md hover:bg-cyber-blue/80 transition-colors"
+                  className="px-6 py-2 bg-theme-button-bg text-white rounded-md hover:bg-theme-button-hover transition-colors"
                 >
                   Send Another Message
                 </button>
@@ -145,7 +147,7 @@ const Contact = () => {
             ) : (
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-theme-text mb-1">
                     Name
                   </label>
                   <input
@@ -155,12 +157,12 @@ const Contact = () => {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 bg-cyber-dark/20 border border-gray-600/50 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-blue focus:border-transparent transition-colors text-white text-sm"
+                    className="w-full px-3 py-2 bg-theme-bg/20 border border-theme-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-theme-accent focus:border-transparent transition-colors text-theme-text text-sm"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-theme-text mb-1">
                     Email
                   </label>
                   <input
@@ -170,12 +172,12 @@ const Contact = () => {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 bg-cyber-dark/20 border border-gray-600/50 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-blue focus:border-transparent transition-colors text-white text-sm"
+                    className="w-full px-3 py-2 bg-theme-bg/20 border border-theme-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-theme-accent focus:border-transparent transition-colors text-theme-text text-sm"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="subject" className="block text-sm font-medium text-theme-text mb-1">
                     Subject
                   </label>
                   <input
@@ -185,12 +187,12 @@ const Contact = () => {
                     value={formState.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 bg-cyber-dark/20 border border-gray-600/50 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-blue focus:border-transparent transition-colors text-white text-sm"
+                    className="w-full px-3 py-2 bg-theme-bg/20 border border-theme-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-theme-accent focus:border-transparent transition-colors text-theme-text text-sm"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-theme-text mb-1">
                     Message
                   </label>
                   <textarea
@@ -200,7 +202,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-3 py-2 bg-cyber-dark/20 border border-gray-600/50 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-blue focus:border-transparent transition-colors resize-none text-white text-sm"
+                    className="w-full px-3 py-2 bg-theme-bg/20 border border-theme-accent/30 rounded-md focus:outline-none focus:ring-2 focus:ring-theme-accent focus:border-transparent transition-colors resize-none text-theme-text text-sm"
                   />
                 </div>
                 
@@ -211,8 +213,8 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 rounded-md bg-cyber-blue text-white font-medium transition-all duration-300 glow-border ${
-                    isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-cyber-blue/80 hover:scale-[1.02]'
+                  className={`w-full py-3 px-6 rounded-md bg-theme-button-bg text-white font-medium transition-all duration-300 ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-theme-button-hover hover:scale-[1.02]'
                   }`}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -229,8 +231,8 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div className="text-center lg:text-left">
-              <h3 className="text-lg font-bold mb-4 font-orbitron flex items-center justify-center lg:justify-start">
-                <span className="w-4 h-1 bg-cyber-blue mr-2"></span>
+              <h3 className="text-lg font-bold mb-4 font-orbitron flex items-center justify-center lg:justify-start text-theme-text">
+                <span className="w-4 h-1 bg-theme-accent mr-2"></span>
                 Connect With Me
               </h3>
               <div className="space-y-3">
@@ -238,46 +240,46 @@ const Contact = () => {
                   href="https://github.com/Savyasachi-2005"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center p-3 bg-cyber-dark/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-cyber-blue/50 transition-all duration-300 hover:bg-cyber-dark/40 hover:scale-[1.02]"
+                  className="flex items-center p-3 bg-theme-card-bg/80 backdrop-blur-sm rounded-lg border border-theme-accent/30 hover:border-theme-accent/50 transition-all duration-300 hover:bg-theme-card-hover hover:scale-[1.02]"
                 >
-                  <FaGithub className="w-5 h-5 text-cyber-blue mr-3" />
+                  <FaGithub className="w-5 h-5 text-theme-accent mr-3" />
                   <div className="text-left">
-                    <p className="font-medium text-white text-sm">GitHub</p>
-                    <p className="text-xs text-gray-400">@Savyasachi-2005</p>
+                    <p className="font-medium text-theme-text text-sm">GitHub</p>
+                    <p className="text-xs text-theme-text-alt">@Savyasachi-2005</p>
                   </div>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/abhishek-hiremath-3020692a3"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center p-3 bg-cyber-dark/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-cyber-blue/50 transition-all duration-300 hover:bg-cyber-dark/40 hover:scale-[1.02]"
+                  className="flex items-center p-3 bg-theme-card-bg/80 backdrop-blur-sm rounded-lg border border-theme-accent/30 hover:border-theme-accent/50 transition-all duration-300 hover:bg-theme-card-hover hover:scale-[1.02]"
                 >
-                  <FaLinkedin className="w-5 h-5 text-cyber-blue mr-3" />
+                  <FaLinkedin className="w-5 h-5 text-theme-accent mr-3" />
                   <div className="text-left">
-                    <p className="font-medium text-white text-sm">LinkedIn</p>
-                    <p className="text-xs text-gray-400">Abhishek Hiremath</p>
+                    <p className="font-medium text-theme-text text-sm">LinkedIn</p>
+                    <p className="text-xs text-theme-text-alt">Abhishek Hiremath</p>
                   </div>
                 </a>
                 <a
                   href="mailto:abhishekhiremath0424@gmail.com"
-                  className="flex items-center p-3 bg-cyber-dark/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-cyber-blue/50 transition-all duration-300 hover:bg-cyber-dark/40 hover:scale-[1.02]"
+                  className="flex items-center p-3 bg-theme-card-bg/80 backdrop-blur-sm rounded-lg border border-theme-accent/30 hover:border-theme-accent/50 transition-all duration-300 hover:bg-theme-card-hover hover:scale-[1.02]"
                 >
-                  <FaEnvelope className="w-5 h-5 text-cyber-blue mr-3" />
+                  <FaEnvelope className="w-5 h-5 text-theme-accent mr-3" />
                   <div className="text-left">
-                    <p className="font-medium text-white text-sm">Email</p>
-                    <p className="text-xs text-gray-400">abhishekhiremath0424@gmail.com</p>
+                    <p className="font-medium text-theme-text text-sm">Email</p>
+                    <p className="text-xs text-theme-text-alt">abhishekhiremath0424@gmail.com</p>
                   </div>
                 </a>
               </div>
             </div>
             <div className="text-center lg:text-left">
               <h3 className="text-lg font-bold mb-4 font-orbitron flex items-center justify-center lg:justify-start">
-                <span className="w-4 h-1 bg-cyber-blue mr-2"></span>
+                <span className="w-4 h-1 bg-accent mr-2"></span>
                 Location
               </h3>
-              <div className="p-4 bg-cyber-dark/20 backdrop-blur-sm rounded-lg border border-gray-600/30 hover:border-cyber-blue/50 transition-all duration-300 flex items-center justify-center lg:justify-start hover:bg-cyber-dark/40 hover:scale-[1.02]">
-                <div className="text-xl text-cyber-blue mr-3">📍</div>
-                <p className="font-medium text-white text-sm">Tumkur, Karnataka, India</p>
+              <div className="p-4 bg-background/20 backdrop-blur-sm rounded-lg border border-accent/30 hover:border-accent/50 transition-all duration-300 flex items-center justify-center lg:justify-start hover:bg-background/40 hover:scale-[1.02]">
+                <div className="text-xl text-accent mr-3">📍</div>
+                <p className="font-medium text-foreground text-sm">Tumkur, Karnataka, India</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-3">
@@ -286,9 +288,9 @@ const Contact = () => {
                 { label: 'Response', value: '<24h' },
                 { label: 'Tea', value: '☕ Always' },
               ].map(item => (
-                <div key={item.label} className="p-3 bg-cyber-dark/30 border border-gray-600/30 rounded-md text-center hover:border-cyber-blue/50 transition-colors">
-                  <p className="text-cyber-blue text-sm font-semibold">{item.value}</p>
-                  <p className="text-[10px] tracking-wide text-gray-400 uppercase">{item.label}</p>
+                <div key={item.label} className="p-3 bg-background/30 border border-accent/30 rounded-md text-center hover:border-accent/50 transition-colors">
+                  <p className="text-accent text-sm font-semibold">{item.value}</p>
+                  <p className="text-[10px] tracking-wide text-foreground/60 uppercase">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -337,23 +339,23 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="bg-cyber-dark/30 backdrop-blur-sm p-6 rounded-lg border border-gray-700/30">
-      <h3 className="text-lg font-bold mb-4 font-orbitron flex items-center">
-        <span className="w-4 h-1 bg-cyber-blue mr-2" />
+    <div className="bg-theme-card-bg/80 backdrop-blur-sm p-6 rounded-lg border border-theme-accent/30">
+      <h3 className="text-lg font-bold mb-4 font-orbitron flex items-center text-theme-text">
+        <span className="w-4 h-1 bg-theme-accent mr-2" />
         FAQ
       </h3>
       <div className="space-y-3">
         {faqs.map((item, idx) => {
           const isOpen = open === idx;
           return (
-            <div key={item.q} className="border border-gray-600/30 rounded-md overflow-hidden hover:border-cyber-blue/50 transition-colors">
+            <div key={item.q} className="border border-theme-accent/30 rounded-md overflow-hidden hover:border-theme-accent/50 transition-colors">
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : idx)}
-                className="w-full flex justify-between items-center text-left px-3 py-2 bg-cyber-dark/40"
+                className="w-full flex justify-between items-center text-left px-3 py-2 bg-theme-bg/40"
               >
-                <span className="text-sm font-medium text-gray-200 pr-4">{item.q}</span>
-                <span className={`text-cyber-blue text-xs transition-transform ${isOpen ? 'rotate-45' : ''}`}>+</span>
+                <span className="text-sm font-medium text-theme-text pr-4">{item.q}</span>
+                <span className={`text-theme-accent text-xs transition-transform ${isOpen ? 'rotate-45' : ''}`}>+</span>
               </button>
               <motion.div
                 initial={false}
@@ -362,7 +364,7 @@ const FAQ = () => {
                 className="px-3"
               >
                 {isOpen && (
-                  <p className="text-xs text-gray-400 pb-3 pt-1 leading-relaxed">{item.a}</p>
+                  <p className="text-xs text-theme-text-alt pb-3 pt-1 leading-relaxed">{item.a}</p>
                 )}
               </motion.div>
             </div>
