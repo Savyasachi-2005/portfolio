@@ -11,18 +11,15 @@ const Home = () => {
   const services = [
     {
       title: 'Backend Development',
-      description: 'Building robust and scalable server-side applications with FastAPI and Flask.',
-      icon: '🖥️'
+      description: 'Building robust and scalable server-side applications with FastAPI and Flask.'
     },
     {
       title: 'AI & Machine Learning',
-      description: 'Developing intelligent solutions using cutting-edge AI and ML techniques.',
-      icon: '🧠'
+      description: 'Developing intelligent solutions using cutting-edge AI and ML techniques.'
     },
     {
       title: 'DSA in Java',
-      description: 'Solving complex data structures and algorithms problems while maintaining a consistent problem-solving streak.',
-      icon: '📊'
+      description: 'Solving complex data structures and algorithms problems while maintaining a consistent problem-solving streak.'
     }
   ];
 
@@ -66,7 +63,6 @@ const Home = () => {
                 transition={{ duration: 0.45, delay: index * 0.08 }}
                 viewport={{ once: true }}
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-lg font-semibold mb-2 text-theme-text tracking-wide">{service.title}</h3>
                 <p className="text-theme-text-alt text-sm leading-relaxed">{service.description}</p>
               </motion.div>

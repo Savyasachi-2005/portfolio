@@ -137,8 +137,8 @@ const Navbar = () => {
                   className="w-full flex items-center justify-center gap-2 rounded-lg py-2 text-sm font-medium transition-colors"
                   style={{ color:'var(--accent)', border:'1px solid var(--accent)', background:'color-mix(in srgb, var(--accent) 14%, transparent)' }}
                 >
-                  <span className="text-base" role="img" aria-hidden="true">{theme === 'cyber' ? '⚡' : '☕'}</span>
-                  {theme === 'cyber' ? 'Cyber' : 'Pro'} Mode
+                  <span className="text-base" role="img" aria-hidden="true">{theme === 'cyber' ? '☕' : '⚡'}</span>
+                  {theme === 'cyber' ? 'Pro' : 'Cyber'} Mode
                 </button>
               </li>
             </ul>

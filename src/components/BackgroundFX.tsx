@@ -28,8 +28,7 @@ const BackgroundFX: React.FC<BackgroundFXProps> = ({
 						className={`absolute inset-0 ${opacity}`} 
 						style={{ 
 							backgroundImage:'linear-gradient(to right, color-mix(in srgb, var(--accent) 40%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--accent) 40%, transparent) 1px, transparent 1px)', 
-							backgroundSize:'32px 32px',
-							animation: 'pulseGrid 8s ease-in-out infinite'
+							backgroundSize:'32px 32px'
 						}} 
 					/>
 					{/* Subtle diagonal grid overlay */}
@@ -37,8 +36,7 @@ const BackgroundFX: React.FC<BackgroundFXProps> = ({
 						className="absolute inset-0 opacity-[0.15]" 
 						style={{ 
 							backgroundImage:'linear-gradient(45deg, color-mix(in srgb, var(--accent) 20%, transparent) 1px, transparent 1px)',
-							backgroundSize:'64px 64px',
-							animation: 'pulseGridOverlay 12s ease-in-out infinite'
+							backgroundSize:'64px 64px'
 						}} 
 					/>
 				</>
