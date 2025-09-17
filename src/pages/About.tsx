@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaGraduationCap, FaBookOpen, FaMicrophone, FaPuzzlePiece, FaTools, FaRocket } from 'react-icons/fa';
 
 // Import your images
 import img1 from '../assets/images/IMG-20250807-WA0010.jpg';
 import img2 from '../assets/images/IMG-20250807-WA0011.jpg';
 import img3 from '../assets/images/IMG-20250807-WA0012.jpg';
 import img4 from '../assets/images/IMG-20250807-WA0013.jpg';
-import img5 from '../assets/images/IMG-20250807-WA0014.jpg';
+// removed: img5 (no longer used in timeline section)
 
 const About = () => {
   useEffect(() => {
@@ -38,6 +39,75 @@ const About = () => {
   alt: "Abhishek Hiremath - Profile Photo 4",
       fallback: "https://via.placeholder.com/400x400?text=Profile+4"
     }
+  ];
+
+  // Journey roadmap milestones (chronological, no years)
+  const milestones = [
+    {
+      title: 'Joined College',
+      event: 'Started CSE–AIML program',
+      description:
+        'Coming from a taluk to a big campus—explored clubs and met seniors; an exciting start.',
+      icon: FaGraduationCap,
+    },
+    {
+      title: 'Completed 1st Year',
+      event: 'Academic milestone',
+      description:
+        'Tough 1st sem; in 2nd sem, explored Python, Git, and found direction.',
+      icon: FaBookOpen,
+    },
+    {
+      title: 'Club & Event Highlights',
+      event: 'TEDx, SigmaCSE, GBH',
+      description:
+        'Hosted TEDx talks, led club activities, and learned teamwork at a city hackathon.',
+      icon: FaMicrophone,
+      tags: ['TEDx Siddaganga', 'SigmaCSE', 'Great Bengaluru Hackathon'],
+    },
+    {
+      title: 'Key Projects',
+      event: 'Hands‑on builds',
+      description:
+        'AI and web apps focused on learning, productivity, and impact.',
+      icon: FaPuzzlePiece,
+      tags: [
+        'CurioMindAI',
+        'Student Study Organizer',
+        'AI Study Planner',
+        'RAG (FastAPI)',
+        'Project Sparsha',
+      ],
+    },
+    {
+      title: 'Skills & Tools',
+      event: 'Tech stack',
+      description:
+        'Backend-focused with AI integration, plus strong collaboration and time management.',
+      icon: FaTools,
+      tags: [
+        'Python',
+        'Flask',
+        'FastAPI',
+        'Java',
+        'C/C++',
+        'PostgreSQL',
+        'AI/ML',
+        'Prompt Eng.',
+        'VSCode',
+        'Git',
+        'GitHub',
+        'Vercel',
+        'Render',
+      ],
+    },
+    {
+      title: 'Current Status & Goals',
+      event: 'Now → Next',
+      description:
+        'Deepening DSA and ML; steadily expanding AI/ML expertise.',
+      icon: FaRocket,
+    },
   ];
 
   // Auto-rotate images every 5 seconds (increased for smoother experience)
@@ -255,64 +325,129 @@ const About = () => {
             </h3>
             <div className="w-16 h-1 bg-theme-accent mx-auto"></div>
           </div>
-          
-          {/* Photo Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                src: img5,
-                alt: "Abhishek - Journey Photo 1",
-                title: "My Development Journey",
-                description: "Passionate about coding and technology",
-                fallback: "https://via.placeholder.com/300x200?text=Journey+1"
-              },
-              {
-                src: img1, 
-                alt: "Abhishek - Journey Photo 2",
-                title: "Learning & Growth",
-                description: "Continuous improvement mindset",
-                fallback: "https://via.placeholder.com/300x200?text=Journey+2"
-              },
-              {
-                src: img3,
-                alt: "Abhishek - Journey Photo 3",
-                title: "Future Aspirations",
-                description: "Building tomorrow's solutions",
-                fallback: "https://via.placeholder.com/300x200?text=Journey+3"
-              }
-            ].map((photo, index) => (
-              <motion.div
-                key={index}
-                className="group relative overflow-hidden rounded-xl bg-theme-card-bg transition-all duration-300"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.9 + index * 0.1 }}
-                whileHover={{ scale: 1.015, y: -4 }}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover about-image-quality transition-transform duration-500 group-hover:scale-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = photo.fallback;
+          {/* Timeline / Roadmap */}
+          <div className="relative max-w-5xl mx-auto px-2 sm:px-4">
+            {/* Center line on desktop */}
+            <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block">
+              <div className="h-full w-px bg-gradient-to-b from-transparent via-theme-accent/40 to-transparent" />
+            </div>
+            {/* Mobile left rail */}
+            <div className="pointer-events-none absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-theme-accent/30 to-transparent md:hidden" />
+
+            <motion.ul
+              className="space-y-12 md:space-y-16"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-80px' }}
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.12 } },
+              }}
+            >
+              {milestones.map((m, idx) => {
+                const isLeft = idx % 2 === 0; // alternate on desktop
+                const Icon = (m as any).icon as React.ComponentType<{ className?: string }>;
+                return (
+                  <motion.li
+                    key={idx}
+                    className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 md:items-center"
+                    variants={{
+                      hidden: { opacity: 0, y: 24, x: isLeft ? -40 : 40 },
+                      show: {
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        transition: { duration: 0.55, ease: 'easeOut' },
+                      },
                     }}
-                  />
-                </div>
-                
-                {/* Overlay content */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-theme-bg to-transparent">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="font-semibold text-theme-text mb-1">{photo.title}</h4>
-                    <p className="text-sm text-theme-text-alt">{photo.description}</p>
-                  </div>
-                </div>
-                
-                {/* Glow effect */}
-        <div className="absolute inset-0 ring-1 ring-accent/0 group-hover:ring-accent/30 transition-all duration-300 rounded-xl"></div>
-              </motion.div>
-            ))}
+                  >
+                    {/* Desktop connector from center dot to card (dotted) */}
+                    {isLeft ? (
+                      <span
+                        className="hidden md:block pointer-events-none absolute top-1/2 right-1/2 -translate-y-1/2 h-px w-[calc(50%-2rem)] border-t border-dashed border-theme-accent/30"
+                        aria-hidden
+                      />
+                    ) : (
+                      <span
+                        className="hidden md:block pointer-events-none absolute top-1/2 left-1/2 -translate-y-1/2 h-px w-[calc(50%-2rem)] border-t border-dashed border-theme-accent/30"
+                        aria-hidden
+                      />
+                    )}
+                    {/* Mobile dot aligned to left rail */}
+                    <div className="md:hidden absolute left-4 top-10">
+                      <span className="relative inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--bg-body)] ring-2 ring-theme-accent">
+                        <span className="absolute h-2 w-2 rounded-full bg-theme-accent/60 animate-ping" />
+                        <span className="relative h-2 w-2 rounded-full bg-theme-accent" />
+                      </span>
+                    </div>
+                    {/* Mobile connector from rail dot to card */}
+                    <span
+                      className="md:hidden pointer-events-none absolute left-6 top-10 h-px w-8 border-t border-dashed border-theme-accent/30"
+                      aria-hidden
+                    />
+                    {/* Card (mobile full width, desktop alternates) */}
+                    <div className={`${isLeft ? 'md:col-start-1' : 'md:col-start-3'} md:row-start-1`}>
+                      <motion.div
+                        className="group relative z-10 card-base bg-theme-card-bg/80 backdrop-blur-sm border border-white/5 hover:border-theme-accent/30 rounded-xl p-5 pl-12 sm:p-6 md:pl-6 transition-all duration-300 shadow-lg hover:shadow-theme-accent/20"
+                        whileHover={{ y: -4, scale: 1.01 }}
+                        whileTap={{ scale: 0.995 }}
+                        transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="shrink-0 relative">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-theme-accent/10 text-theme-accent ring-1 ring-theme-accent/30">
+                              {Icon ? <Icon className="h-5 w-5" /> : <span className="text-xl">•</span>}
+                            </div>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="text-lg font-semibold text-theme-text truncate">{m.title}</h4>
+                              {m.event && (
+                                <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 rounded-full bg-theme-accent/10 text-theme-accent border border-theme-accent/20">
+                                  {m.event}
+                                </span>
+                              )}
+                            </div>
+                            <p className="mt-1 text-sm text-theme-text-alt">
+                              {m.description}
+                            </p>
+                            {Array.isArray((m as any).tags) && (m as any).tags.length > 0 && (
+                              <div className="mt-3 flex flex-wrap gap-2">
+                                {(m as any).tags.map((t: string) => (
+                                  <span
+                                    key={t}
+                                    className="text-xs px-2 py-1 rounded-md bg-[var(--bg-elevated,#0b0f1a)]/60 border border-white/5 text-[var(--text-secondary)] hover:text-theme-text transition-colors"
+                                  >
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        {/* Hover lift */}
+                        <div className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-theme-accent/0 transition-all duration-300 group-hover:ring-2 group-hover:ring-theme-accent/30" />
+                      </motion.div>
+                    </div>
+
+                    {/* Center dot (desktop only) */}
+                    <div className="hidden md:flex md:col-start-2 md:row-start-1 items-center justify-center">
+                      <motion.span
+                        className="relative z-10 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--bg-body)] ring-2 ring-theme-accent"
+                        initial={{ scale: 0.6, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: 'spring', stiffness: 280, damping: 18 }}
+                        aria-hidden
+                      >
+                        <span className="absolute h-2.5 w-2.5 rounded-full bg-theme-accent/60 animate-ping" />
+                        <span className="relative h-2.5 w-2.5 rounded-full bg-theme-accent" />
+                      </motion.span>
+                    </div>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
           </div>
       <div className="section-divider" />
         </motion.div>
