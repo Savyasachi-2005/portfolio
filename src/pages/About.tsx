@@ -51,10 +51,10 @@ const About = () => {
       icon: FaGraduationCap,
     },
     {
-      title: 'Completed 1st Year',
-      event: 'Academic milestone',
+      title: 'Finding My Flow',
+      event: 'Breakthrough Moment',
       description:
-        'Tough 1st sem; in 2nd sem, explored Python, Git, and found direction.',
+        'Overcame early struggles, discovered Python and Git, and started building real momentum.',
       icon: FaBookOpen,
     },
     {
