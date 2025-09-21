@@ -171,6 +171,7 @@ img { image-rendering:-webkit-optimize-contrast; -ms-interpolation-mode:bicubic;
 @keyframes orbDrift { 0% { transform:translate3d(-40px,-20px,0) scale(1); } 50% { transform:translate3d(30px,40px,0) scale(1.06); } 100% { transform:translate3d(-20px,10px,0) scale(0.95); } }
 
 .app-container { width:100%; margin:0 auto; padding-left:1rem; padding-right:1rem; }
+.app-container, .container { overflow-x: hidden; }
 @media (min-width:480px){ .app-container{ padding-left:1.25rem; padding-right:1.25rem; } }
 @media (min-width:640px){ .app-container{ max-width:640px; } }
 @media (min-width:768px){ .app-container{ max-width:768px; } }

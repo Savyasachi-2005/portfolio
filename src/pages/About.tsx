@@ -121,13 +121,13 @@ const About = () => {
 
   return (
     <motion.div
-      className="section pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full"
+      className="section pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto max-w-7xl">
+  <div className="container mx-auto max-w-7xl overflow-x-hidden">
         <div className="text-center mb-12">
           <motion.h1
             className="text-3xl md:text-4xl font-semibold mb-4 font-orbitron tracking-wide"
@@ -145,7 +145,7 @@ const About = () => {
           />
         </div>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center overflow-x-hidden">
           {/* Enhanced Photo Gallery */}
           <motion.div
       className="relative mx-auto lg:mx-0 card-base p-4"
@@ -155,7 +155,7 @@ const About = () => {
       whileHover={{ y: -4, transition: { duration: 0.3, ease: 'easeOut' } }}
           >
             {/* Main Image Display */}
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-accent shadow-2xl mx-auto">
+            <div className="relative w-full max-w-[18rem] h-[18rem] sm:max-w-[20rem] sm:h-[20rem] md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-accent shadow-2xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={selectedImage}
@@ -326,16 +326,16 @@ const About = () => {
             <div className="w-16 h-1 bg-theme-accent mx-auto"></div>
           </div>
           {/* Timeline / Roadmap */}
-          <div className="relative max-w-5xl mx-auto px-2 sm:px-4">
+          <div className="relative max-w-5xl mx-auto px-2 sm:px-4 overflow-hidden md:overflow-visible">
             {/* Center line on desktop */}
             <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block">
               <div className="h-full w-px bg-gradient-to-b from-transparent via-theme-accent/40 to-transparent" />
             </div>
             {/* Mobile left rail */}
-            <div className="pointer-events-none absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-theme-accent/30 to-transparent md:hidden" />
+            <div className="pointer-events-none absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-theme-accent/30 to-transparent md:hidden" />
 
             <motion.ul
-              className="space-y-12 md:space-y-16"
+              className="space-y-12 md:space-y-16 overflow-x-hidden"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: '-80px' }}
@@ -350,7 +350,7 @@ const About = () => {
                 return (
                   <motion.li
                     key={idx}
-                    className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 md:items-center"
+                    className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 md:items-center overflow-x-hidden"
                     variants={{
                       hidden: { opacity: 0, y: 24, x: isLeft ? -40 : 40 },
                       show: {
@@ -374,7 +374,7 @@ const About = () => {
                       />
                     )}
                     {/* Mobile dot aligned to left rail */}
-                    <div className="md:hidden absolute left-4 top-10">
+                    <div className="md:hidden absolute left-3 top-10">
                       <span className="relative inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--bg-body)] ring-2 ring-theme-accent">
                         <span className="absolute h-2 w-2 rounded-full bg-theme-accent/60 animate-ping" />
                         <span className="relative h-2 w-2 rounded-full bg-theme-accent" />
@@ -382,13 +382,13 @@ const About = () => {
                     </div>
                     {/* Mobile connector from rail dot to card */}
                     <span
-                      className="md:hidden pointer-events-none absolute left-6 top-10 h-px w-8 border-t border-dashed border-theme-accent/30"
+                      className="md:hidden pointer-events-none absolute left-5 top-10 h-px w-7 border-t border-dashed border-theme-accent/30"
                       aria-hidden
                     />
                     {/* Card (mobile full width, desktop alternates) */}
                     <div className={`${isLeft ? 'md:col-start-1' : 'md:col-start-3'} md:row-start-1`}>
                       <motion.div
-                        className="group relative z-10 card-base bg-theme-card-bg/80 backdrop-blur-sm border border-white/5 hover:border-theme-accent/30 rounded-xl p-5 pl-12 sm:p-6 md:pl-6 transition-all duration-300 shadow-lg hover:shadow-theme-accent/20"
+                        className="group relative z-10 card-base bg-theme-card-bg/80 backdrop-blur-sm border border-white/5 hover:border-theme-accent/30 rounded-xl p-5 pl-10 sm:p-6 md:pl-6 transition-all duration-300 shadow-lg hover:shadow-theme-accent/20"
                         whileHover={{ y: -4, scale: 1.01 }}
                         whileTap={{ scale: 0.995 }}
                         transition={{ type: 'spring', stiffness: 280, damping: 22 }}
@@ -416,7 +416,7 @@ const About = () => {
                                 {(m as any).tags.map((t: string) => (
                                   <span
                                     key={t}
-                                    className="text-xs px-2 py-1 rounded-md bg-[var(--bg-elevated,#0b0f1a)]/60 border border-white/5 text-[var(--text-secondary)] hover:text-theme-text transition-colors"
+                                    className="text-xs px-2 py-1 rounded-md bg-[var(--bg-elevated,#0b0f1a)]/60 border border-white/5 text-[var(--text-secondary)] hover:text-theme-text transition-colors break-words"
                                   >
                                     {t}
                                   </span>

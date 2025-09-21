@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload, FaEye, FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 // Import the actual resume PDF asset (Vite will resolve this to a URL)
-import resumePdf from '../assets/resume_1.pdf';
+import resumePdf from '../assets/resume.pdf';
 
 const Resume = () => {
   useEffect(() => {
