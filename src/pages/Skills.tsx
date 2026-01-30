@@ -80,21 +80,21 @@ const Skills = () => {
 
   const categoryContainer = (title: string, skills: Skill[]) => (
     <motion.div
-      className="mb-16 w-full text-center"
+      className="mb-10 sm:mb-12 md:mb-16 w-full text-center"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true, margin: "-100px" }}
     >
       <motion.h3 
-        className="text-2xl font-bold mb-8 font-orbitron flex items-center justify-center text-theme-text"
+        className="text-lg sm:text-xl md:text-2xl font-bold mb-5 sm:mb-6 md:mb-8 font-orbitron flex items-center justify-center text-theme-text"
         initial={{ x: -50, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
         <motion.span 
-          className="w-8 h-1 bg-theme-accent mr-3"
+          className="w-6 sm:w-8 h-1 bg-theme-accent mr-2 sm:mr-3"
           initial={{ width: 0 }}
           whileInView={{ width: 32 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -102,7 +102,7 @@ const Skills = () => {
         ></motion.span>
         <span>{title}</span>
       </motion.h3>
-  <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 sm:gap-4 md:gap-5 lg:gap-6 justify-items-center max-w-7xl mx-auto">
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-2 sm:gap-3 md:gap-4 lg:gap-5 justify-items-center max-w-7xl mx-auto">
         {skills.map((skill, index) => (
           <SkillBadge key={skill.name} skill={skill} index={index} />
         ))}
@@ -114,12 +114,12 @@ const Skills = () => {
   // (Removed unused containerVariants to satisfy no-unused-locals build rule.)
   
   return (
-  <section className="section w-full min-h-screen bg-transparent text-theme-text px-4 md:px-8 pt-24 pb-20 relative overflow-hidden">
+  <section className="section w-full min-h-screen bg-transparent text-theme-text px-3 sm:px-4 md:px-8 pt-20 sm:pt-24 pb-16 sm:pb-20 relative overflow-hidden">
       {/* Removed internal solid background so global dotted pattern is visible */}
       
-  <div className="text-center mb-12 sm:mb-16 w-full relative z-10">
+  <div className="text-center mb-8 sm:mb-12 md:mb-16 w-full relative z-10">
         <motion.h1
-      className="text-3xl md:text-5xl font-semibold mb-4 font-orbitron text-theme-text tracking-wide"
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 sm:mb-4 font-orbitron text-theme-text tracking-wide"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -127,13 +127,13 @@ const Skills = () => {
           My <span className="text-theme-accent">Skills</span>
         </motion.h1>
         <motion.div
-          className="w-24 h-1 bg-theme-accent mx-auto"
+          className="w-16 sm:w-20 md:w-24 h-1 bg-theme-accent mx-auto"
           initial={{ width: 0 }}
           animate={{ width: 96 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         />
         <motion.p
-          className="mt-8 mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-theme-text-alt"
+          className="mt-4 sm:mt-6 md:mt-8 mx-auto max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-theme-text-alt px-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}

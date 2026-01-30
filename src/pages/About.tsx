@@ -121,16 +121,16 @@ const About = () => {
 
   return (
     <motion.div
-      className="section pt-24 pb-16 px-4 sm:px-6 md:px-8 w-full overflow-x-hidden"
+      className="section pt-20 sm:pt-24 pb-12 sm:pb-16 px-3 sm:px-4 md:px-6 lg:px-8 w-full overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
   <div className="container mx-auto max-w-7xl overflow-x-hidden">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <motion.h1
-            className="text-3xl md:text-4xl font-semibold mb-4 font-orbitron tracking-wide"
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4 font-orbitron tracking-wide"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -138,24 +138,24 @@ const About = () => {
             About <span className="text-accent">Me</span>
           </motion.h1>
           <motion.div
-            className="w-20 h-1 bg-accent mx-auto"
+            className="w-16 sm:w-20 h-1 bg-accent mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 80 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           />
         </div>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center overflow-x-hidden">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 items-center overflow-x-hidden">
           {/* Enhanced Photo Gallery */}
           <motion.div
-      className="relative mx-auto lg:mx-0 card-base p-4"
+      className="relative mx-auto lg:mx-0 card-base p-3 sm:p-4"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
       whileHover={{ y: -4, transition: { duration: 0.3, ease: 'easeOut' } }}
           >
             {/* Main Image Display */}
-            <div className="relative w-full max-w-[18rem] h-[18rem] sm:max-w-[20rem] sm:h-[20rem] md:w-[26rem] md:h-[26rem] lg:w-[28rem] lg:h-[28rem] rounded-2xl overflow-hidden border-2 border-accent shadow-2xl mx-auto">
+            <div className="relative w-full max-w-[14rem] h-[14rem] sm:max-w-[18rem] sm:h-[18rem] md:max-w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] xl:w-[28rem] xl:h-[28rem] rounded-xl sm:rounded-2xl overflow-hidden border-2 border-accent shadow-2xl mx-auto">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={selectedImage}

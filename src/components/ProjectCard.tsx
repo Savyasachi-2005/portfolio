@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-theme-bg/85 z-10"></div>
       
     {/* Project image (responsive height) */}
-    <div className="h-40 sm:h-48 bg-theme-bg flex items-center justify-center">
+    <div className="h-32 sm:h-40 md:h-48 bg-theme-bg flex items-center justify-center">
         <img
           src={project.imageUrl}
           alt={project.title}
@@ -42,16 +42,16 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       </div>
       
       {/* Content */}
-      <div className="p-6 relative z-20">
-  <h3 className="text-lg sm:text-xl font-semibold mb-2 font-orbitron text-theme-text tracking-wide">{project.title}</h3>
-  <p className="text-theme-text-alt mb-4 text-[13px] sm:text-sm leading-relaxed">{project.description}</p>
+      <div className="p-4 sm:p-5 md:p-6 relative z-20">
+  <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 sm:mb-2 font-orbitron text-theme-text tracking-wide">{project.title}</h3>
+  <p className="text-theme-text-alt mb-3 sm:mb-4 text-xs sm:text-[13px] md:text-sm leading-relaxed line-clamp-3">{project.description}</p>
         
         {/* Tech stack */}
-        <div className="flex flex-wrap gap-2 mb-5">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
           {project.techStack.map((tech, i) => (
             <span 
               key={i} 
-              className="px-2 py-1 bg-theme-card-hover text-theme-accent rounded-md text-[10px] border border-theme-accent/40"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-theme-card-hover text-theme-accent rounded-md text-[9px] sm:text-[10px] border border-theme-accent/40"
             >
               {tech}
             </span>
@@ -59,16 +59,16 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
         </div>
         
         {/* Links */}
-    <div className="flex items-center space-x-3 pt-1">
+    <div className="flex items-center space-x-2 sm:space-x-3 pt-1">
           <a 
             href={project.githubUrl} 
             target="_blank" 
             rel="noreferrer"
-            className="p-2 rounded-md bg-theme-card-hover hover:bg-theme-button-bg text-theme-accent hover:text-white transition-colors border border-transparent hover:border-theme-accent"
+            className="p-1.5 sm:p-2 rounded-md bg-theme-card-hover hover:bg-theme-button-bg text-theme-accent hover:text-white transition-colors border border-transparent hover:border-theme-accent"
             onClick={(e) => e.stopPropagation()}
             aria-label="GitHub Repository"
           >
-            <FaGithub className="w-5 h-5" />
+            <FaGithub className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
           
           {project.liveUrl && (

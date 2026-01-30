@@ -91,11 +91,11 @@ const Contact = () => {
         ></motion.div>
       </div>
       
-  <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10 flex flex-col justify-center min-h-[calc(100vh-5rem)]">
+  <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 relative z-10 flex flex-col justify-center min-h-[calc(100vh-5rem)]">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <motion.h1
-            className="text-2xl md:text-4xl font-bold mb-4 font-orbitron text-theme-text"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 font-orbitron text-theme-text"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -109,7 +109,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           />
           <motion.p
-            className="mt-4 mx-auto text-theme-text-alt text-base max-w-xl"
+            className="mt-3 sm:mt-4 mx-auto text-theme-text-alt text-sm sm:text-base max-w-xl px-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -124,10 +124,10 @@ const Contact = () => {
         </div>
 
   {/* Main Content Grid */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[2fr_1.4fr_1fr] gap-8 xl:gap-10 w-full">
+  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[2fr_1.4fr_1fr] gap-6 sm:gap-8 xl:gap-10 w-full">
           {/* Contact Form - Left Side */}
           <motion.div
-            className="bg-theme-card-bg/80 backdrop-blur-sm p-6 rounded-lg border border-theme-accent/30 shadow-lg"
+            className="bg-theme-card-bg/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-lg border border-theme-accent/30 shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
