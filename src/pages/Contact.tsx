@@ -61,9 +61,9 @@ const Contact = () => {
   };
 
   return (
-    <section className="section w-full min-h-screen pt-28 pb-20 relative overflow-hidden">
+    <section className="section w-full min-h-screen pt-28 pb-20 relative">
       {/* Background effect - Full viewport coverage */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-10" 
           style={{ 
             backgroundImage: 'radial-gradient(circle at center, var(--accent) 1px, transparent 1px)',

@@ -114,7 +114,7 @@ const Skills = () => {
   // (Removed unused containerVariants to satisfy no-unused-locals build rule.)
   
   return (
-  <section className="section w-full min-h-screen bg-transparent text-theme-text px-3 sm:px-4 md:px-8 pt-20 sm:pt-24 pb-16 sm:pb-20 relative overflow-hidden">
+  <section className="section w-full min-h-screen bg-transparent text-theme-text px-3 sm:px-4 md:px-8 pt-20 sm:pt-24 pb-16 sm:pb-20 relative">
       {/* Removed internal solid background so global dotted pattern is visible */}
       
   <div className="text-center mb-8 sm:mb-12 md:mb-16 w-full relative z-10">

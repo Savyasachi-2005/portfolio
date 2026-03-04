@@ -19,7 +19,7 @@ const BackgroundFX: React.FC<BackgroundFXProps> = ({
 }) => {
 	const opacity = intensity === 'subtle' ? 'opacity-[0.16] md:opacity-[0.12]' : 'opacity-[0.35] md:opacity-[0.3]';
 	return (
-		<div className={`pointer-events-none fixed inset-0 -z-10 ${className}`} aria-hidden="true">
+		<div className={`pointer-events-none fixed inset-0 z-0 ${className}`} aria-hidden="true">
 			<div className="fixed inset-0" style={{ background:'var(--bg-body)' }} />
 			{variant === 'grid' && (
 				<>

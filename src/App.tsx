@@ -23,10 +23,10 @@ function AppShell() {
   const location = useLocation();
   const isHome = location.pathname === '/';
   return (
-    <div className={`flex flex-col min-h-screen w-full ${!isHome ? 'with-dots' : ''} relative`}>
+    <div className={`flex flex-col min-h-screen w-full ${!isHome ? 'with-dots' : ''} relative isolate`}>
       {!isHome && <div className="animated-orb" aria-hidden="true" />}
       <NavBar items={navItems} />
-      <main className="flex-grow w-full overflow-x-hidden pt-4 sm:pt-20 pb-20 sm:pb-0">
+      <main className="flex-grow w-full pt-4 sm:pt-20 pb-20 sm:pb-0 relative z-[1]">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />

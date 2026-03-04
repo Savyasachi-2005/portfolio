@@ -64,7 +64,7 @@ const Projects = () => {
 
   return (
     <motion.div
-      className="section pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 px-3 sm:px-4 md:px-6 lg:px-8 w-full min-h-screen relative overflow-hidden"
+      className="section pt-20 sm:pt-24 md:pt-28 pb-16 sm:pb-20 px-3 sm:px-4 md:px-6 lg:px-8 w-full min-h-screen relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

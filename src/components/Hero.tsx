@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-  <section className="relative w-full flex items-center py-16 sm:py-20 md:py-24 overflow-hidden px-4 sm:px-6 md:px-12">
+  <section className="relative w-full flex items-center py-16 sm:py-20 md:py-24 overflow-x-clip px-4 sm:px-6 md:px-12">
     <div className="w-full relative z-10">
         <div className="text-center md:text-left w-full">
           <motion.div

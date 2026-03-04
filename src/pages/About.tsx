@@ -121,13 +121,13 @@ const About = () => {
 
   return (
     <motion.div
-      className="section pt-20 sm:pt-24 pb-12 sm:pb-16 px-3 sm:px-4 md:px-6 lg:px-8 w-full overflow-x-hidden"
+      className="section pt-20 sm:pt-24 pb-12 sm:pb-16 px-3 sm:px-4 md:px-6 lg:px-8 w-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-  <div className="container mx-auto max-w-7xl overflow-x-hidden">
+  <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <motion.h1
             className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4 font-orbitron tracking-wide"
@@ -145,7 +145,7 @@ const About = () => {
           />
         </div>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 items-center overflow-x-hidden">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Enhanced Photo Gallery */}
           <motion.div
       className="relative mx-auto lg:mx-0 card-base p-3 sm:p-4"
@@ -326,7 +326,7 @@ const About = () => {
             <div className="w-16 h-1 bg-theme-accent mx-auto"></div>
           </div>
           {/* Timeline / Roadmap */}
-          <div className="relative max-w-5xl mx-auto px-2 sm:px-4 overflow-hidden md:overflow-visible">
+          <div className="relative max-w-5xl mx-auto px-2 sm:px-4 overflow-x-clip md:overflow-x-visible">
             {/* Center line on desktop */}
             <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block">
               <div className="h-full w-px bg-gradient-to-b from-transparent via-theme-accent/40 to-transparent" />
@@ -335,7 +335,7 @@ const About = () => {
             <div className="pointer-events-none absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-theme-accent/30 to-transparent md:hidden" />
 
             <motion.ul
-              className="space-y-12 md:space-y-16 overflow-x-hidden"
+              className="space-y-12 md:space-y-16"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: '-80px' }}
@@ -350,7 +350,7 @@ const About = () => {
                 return (
                   <motion.li
                     key={idx}
-                    className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 md:items-center overflow-x-hidden"
+                    className="relative md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8 md:items-center"
                     variants={{
                       hidden: { opacity: 0, y: 24, x: isLeft ? -40 : 40 },
                       show: {
