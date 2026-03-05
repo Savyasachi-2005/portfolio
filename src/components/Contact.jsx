@@ -24,7 +24,7 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-[#FFFFFF]">
+    <section id="contact" className="py-20">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
         <div>
           <motion.h2

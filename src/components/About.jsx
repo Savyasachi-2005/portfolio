@@ -1,34 +1,14 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { FaBrain, FaCogs, FaDatabase, FaProjectDiagram, FaJava, FaGit } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { FaJava } from 'react-icons/fa'
+import { LuServer, LuCpu, LuNetwork } from 'react-icons/lu'
 
-// Import profile photos
-import img1 from '../assets/images/IMG-20250807-WA0010.jpg'
-import img2 from '../assets/images/IMG-20250807-WA0011.jpg'
-import img3 from '../assets/images/IMG-20250807-WA0012.jpg'
-import img4 from '../assets/images/IMG-20250807-WA0013.jpg'
-import img5 from '../assets/images/IMG-20250807-WA0014.jpg'
-import img7 from '../assets/images/My/IMG-20250318-WA0008.jpg'
-import img8 from '../assets/images/My/IMG-20250318-WA0039.jpg'
-import img9 from '../assets/images/My/IMG-20250701-WA0021.jpg'
-import img10 from '../assets/images/My/IMG-20250712-WA0063.jpg'
-import img11 from '../assets/images/My/IMG-20250816-WA0028.jpg'
-import img12 from '../assets/images/My/IMG-20250818-WA0285.jpg'
-import img13 from '../assets/images/My/IMG-20251003-WA0007.jpg'
-import img14 from '../assets/images/My/IMG-20251109-WA0004.jpg'
-import img15 from '../assets/images/My/IMG-20251109-WA0120.jpg'
-import img16 from '../assets/images/My/IMG-20251119-WA0046.jpg'
-import img18 from '../assets/images/My/file_00000000b950620aae5fced40fb7b4e2.png'
-
-const galleryImages = [
-  img1, img2, img3, img4, img5, img7, img8, img9,
-  img10, img11, img12, img13, img14, img15, img16, img18
-]
+// Import profile photo
+import profileImg from '../assets/images/IMG-20250807-WA0010.jpg'
 
 const focuses = [
-  { title: 'Backend Development', icon: FaCogs, desc: 'FastAPI & Flask' },
-  { title: 'AI / Machine Learning', icon: FaBrain, desc: 'Intelligent systems' },
-  { title: 'System Design', icon: FaProjectDiagram, desc: 'Scalable architectures' },
+  { title: 'Backend Development', icon: LuServer, desc: 'FastAPI & Flask' },
+  { title: 'AI / Machine Learning', icon: LuCpu, desc: 'Intelligent systems' },
+  { title: 'System Design', icon: LuNetwork, desc: 'Scalable architectures' },
   { title: 'DSA in Java', icon: FaJava, desc: 'Problem solving streak' },
 ]
 
@@ -69,18 +49,8 @@ const milestones = [
 ]
 
 export default function About() {
-  const [currentImage, setCurrentImage] = useState(0)
-
-  // Auto-rotate images every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % galleryImages.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <section id="about" className="py-20 bg-[#FFFFFF]">
+    <section id="about" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Intro grid */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -138,24 +108,14 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Main photo display with auto-rotate and smooth transitions */}
+            {/* Main photo display */}
             <div className="relative rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-lg">
               <div className="relative aspect-[4/5] overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImage}
-                    src={galleryImages[currentImage]}
-                    alt="Portfolio photo"
-                    className="w-full h-full object-cover"
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -100 }}
-                    transition={{ 
-                      duration: 0.7,
-                      ease: [0.43, 0.13, 0.23, 0.96]
-                    }}
-                  />
-                </AnimatePresence>
+                <img
+                  src={profileImg}
+                  alt="Portfolio photo"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>

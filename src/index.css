@@ -7,6 +7,78 @@ html {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Animated background gradient */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #FAF7F2, #F0F4FF, #FFF5F5, #F0FFF4, #FAF7F2);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* Dot pattern overlay */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(108, 99, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Floating orbs */
+.floating-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #6C63FF 0%, #00A8A8 100%);
+  top: 10%;
+  left: -100px;
+  animation: float1 25s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #00A8A8 0%, #6C63FF 100%);
+  bottom: 20%;
+  right: -50px;
+  animation: float2 30s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #FF6B6B 0%, #6C63FF 100%);
+  top: 50%;
+  left: 40%;
+  animation: float3 20s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-40px, 30px) rotate(-120deg); }
+  66% { transform: translate(30px, -40px) rotate(-240deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -50px) scale(1.1); }
+}
+
 /* Custom scrollbar styles */
 .scrollbar-thin::-webkit-scrollbar {
   height: 6px;

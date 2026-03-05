@@ -15,7 +15,7 @@ const items = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-[#FFFFFF]">
+    <section id="experience" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}

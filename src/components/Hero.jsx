@@ -1,28 +1,10 @@
-import React, { Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
-
-// Lazy-load Spline — fails gracefully if WebGL is unavailable
-const LazySpline = React.lazy(() =>
-  import('@splinetool/react-spline').catch(() => ({
-    default: () => null,
-  }))
-)
-
-function SplineFallback() {
-  return (
-    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#6C63FF]/15 via-transparent to-[#00A8A8]/10">
-      <div className="text-center p-8">
-        <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#6C63FF]/30 to-[#00A8A8]/20 animate-pulse" />
-        <p className="text-sm text-[#6B7280]">Loading 3D scene…</p>
-      </div>
-    </div>
-  )
-}
+import doodleImg from '../assets/hero/doodle.png'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center justify-center bg-[#FAF7F2] overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(800px_circle_at_50%_50%,#6C63FF_0%,transparent_60%)]" />
       </div>
@@ -122,17 +104,13 @@ export default function Hero() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative w-full max-w-[520px] mx-auto"
-          style={{ height: '480px' }}
+          className="relative w-full max-w-[520px] mx-auto flex items-center justify-center"
         >
-          <div className="rounded-2xl overflow-hidden border border-[#E5E7EB] bg-white shadow-sm w-full h-full">
-            <Suspense fallback={<SplineFallback />}>
-              <LazySpline
-                scene="https://prod.spline.design/4cHQr84zOGAHOehh/scene.splinecode"
-                style={{ width: '100%', height: '100%' }}
-              />
-            </Suspense>
-          </div>
+          <img
+            src={doodleImg}
+            alt="Hero illustration"
+            className="w-full h-auto max-h-[480px] object-contain"
+          />
         </motion.div>
       </div>
     </section>
