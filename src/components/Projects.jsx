@@ -81,8 +81,14 @@ const projects = [
   },
 ]
 
+const INITIAL_PROJECTS_COUNT = 4
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [visibleCount, setVisibleCount] = useState(INITIAL_PROJECTS_COUNT)
+
+  const visibleProjects = projects.slice(0, visibleCount)
+  const hasMore = visibleCount < projects.length
 
   return (
     <section id="projects" className="py-20 bg-[#FAF7F2]">
@@ -98,7 +104,7 @@ export default function Projects() {
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((p, idx) => (
+          {visibleProjects.map((p, idx) => (
             <motion.div
               key={p.title}
               onClick={() => setSelectedProject(p)}
@@ -132,6 +138,30 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center mt-10"
+          >
+            <button
+              onClick={() => setVisibleCount(projects.length)}
+              className="px-8 py-3 bg-[#1F2937] text-white rounded-lg hover:bg-[#374151] transition font-medium flex items-center gap-2 group"
+            >
+              Load More Projects
+              <svg
+                className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </motion.div>
+        )}
       </div>
 
       {/* Project Detail Modal */}
