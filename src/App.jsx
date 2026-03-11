@@ -64,7 +64,7 @@ function App() {
         <Resume />
         <Contact />
         <footer className="py-10 text-center text-xs text-[#6B7280]">
-          © {new Date().getFullYear()} Abhishek Hiremath (Savyasachi). Built with React, Tailwind, and Framer Motion.
+          © {new Date().getFullYear()} Abhishek Hiremath (Savyasachi). 
           <div className="mt-2 flex items-center justify-center gap-4">
             <a href="https://github.com/Savyasachi-2005" target="_blank" rel="noreferrer" className="hover:text-[#6C63FF] transition">GitHub</a>
             <a href="https://www.linkedin.com/in/abhishek-hiremath-3020692a3" target="_blank" rel="noreferrer" className="hover:text-[#6C63FF] transition">LinkedIn</a>
