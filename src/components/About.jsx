@@ -62,7 +62,7 @@ export default function About() {
           >
             <h2 className="text-3xl md:text-4xl font-semibold text-[#1F2937]">About Me</h2>
             <p className="mt-5 text-[#1F2937]/80 leading-relaxed">
-              Hi! I'm a passionate developer and <strong>3rd-year Computer Science (AI &amp; ML)
+              Hi! I'm a passionate developer and <strong>4th-year Computer Science (AI &amp; ML)
               student</strong> at Siddaganga Institute of Technology (2023–2027).
               <br /><br />
               My journey into coding began with curiosity about how things work behind the scenes.
