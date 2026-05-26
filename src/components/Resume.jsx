@@ -95,7 +95,7 @@ export default function Resume() {
 
             {/* Last Updated */}
             <div className="text-center text-xs text-[#6B7280] pt-4 border-t border-[#E5E7EB]">
-              <p>Last updated: March 2026</p>
+              <p>Last updated: May 2026</p>
             </div>
           </motion.div>
         </div>
